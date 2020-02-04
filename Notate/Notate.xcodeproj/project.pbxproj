@@ -99,6 +99,9 @@
 		29A2791023E9FC0C00521C3C /* Notate */ = {
 			isa = PBXGroup;
 			children = (
+				29A2794323EA036700521C3C /* Models */,
+				29A2794223EA035C00521C3C /* SupportViews */,
+				29A2794123EA034300521C3C /* Views */,
 				29A2791123E9FC0C00521C3C /* AppDelegate.swift */,
 				29A2791323E9FC0C00521C3C /* SceneDelegate.swift */,
 				29A2791523E9FC0C00521C3C /* ContentView.swift */,
@@ -134,6 +137,27 @@
 				29A2793523E9FC0F00521C3C /* Info.plist */,
 			);
 			path = NotateUITests;
+			sourceTree = "<group>";
+		};
+		29A2794123EA034300521C3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		29A2794223EA035C00521C3C /* SupportViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SupportViews;
+			sourceTree = "<group>";
+		};
+		29A2794323EA036700521C3C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
