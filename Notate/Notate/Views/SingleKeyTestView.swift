@@ -13,8 +13,10 @@ import AVFoundation
 
 struct SingleKeyTestView: View {
     @ObservedObject var audioRecorder: AudioRecorder
+
     var body: some View {
         VStack{
+
             Button(action: {self.audioRecorder.startRecording()}) {
                 Image(systemName: "circle.fill")
                     //...

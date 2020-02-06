@@ -55,6 +55,7 @@ class AudioRecorder: ObservableObject {
         }
         
     }
+    
     func stopRecording() {
         audioRecorder.stop()
         recording = false
