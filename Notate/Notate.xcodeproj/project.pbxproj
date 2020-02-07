@@ -17,6 +17,7 @@
 		29A2793423E9FC0F00521C3C /* NotateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2793323E9FC0F00521C3C /* NotateUITests.swift */; };
 		29A2794523EA06A400521C3C /* SingleKeyTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2794423EA06A400521C3C /* SingleKeyTestView.swift */; };
 		29A2794723EA0A6C00521C3C /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2794623EA0A6C00521C3C /* AudioRecorder.swift */; };
+		29A2794923EA197500521C3C /* AudioAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2794823EA197500521C3C /* AudioAnalyzer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		29A2793523E9FC0F00521C3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29A2794423EA06A400521C3C /* SingleKeyTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleKeyTestView.swift; sourceTree = "<group>"; };
 		29A2794623EA0A6C00521C3C /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		29A2794823EA197500521C3C /* AudioAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				29A2794623EA0A6C00521C3C /* AudioRecorder.swift */,
+				29A2794823EA197500521C3C /* AudioAnalyzer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				29A2791223E9FC0C00521C3C /* AppDelegate.swift in Sources */,
 				29A2791423E9FC0C00521C3C /* SceneDelegate.swift in Sources */,
 				29A2791623E9FC0C00521C3C /* ContentView.swift in Sources */,
+				29A2794923EA197500521C3C /* AudioAnalyzer.swift in Sources */,
 				29A2794723EA0A6C00521C3C /* AudioRecorder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,17 +13,29 @@ import AVFoundation
 
 struct SingleKeyTestView: View {
     @ObservedObject var audioRecorder: AudioRecorder
+    func anaTest(){
+        var A = AudioAnalyze()
+        A.analysis()
+    }
     var body: some View {
         VStack{
             Button(action: {self.audioRecorder.startRecording()}) {
                 Image(systemName: "circle.fill")
+                .frame(width:100,height: 100)
                     //...
             }
             
             Button(action: {self.audioRecorder.stopRecording()}) {
                 Image(systemName: "stop.fill")
+                .frame(width:100,height: 100)
                     //...
             }
+            
+            Button(action: self.anaTest){
+                Image(systemName: "camera")
+                    .frame(width:100,height: 100)
+            }
+            
         }
     }
 }
