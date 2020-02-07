@@ -13,27 +13,38 @@ import AVFoundation
 
 struct SingleKeyTestView: View {
     @ObservedObject var audioRecorder: AudioRecorder
+    @State var FFTResults : [FFTResult]=[]
     func anaTest(){
         var A = AudioAnalyze()
-        A.analysis()
+        self.FFTResults=A.analysis()
     }
     var body: some View {
         VStack{
             Button(action: {self.audioRecorder.startRecording()}) {
-                Image(systemName: "circle.fill")
+//                Image(systemName: "circle.fill")
+                Text("Start Record")
                 .frame(width:100,height: 100)
                     //...
             }
             
             Button(action: {self.audioRecorder.stopRecording()}) {
-                Image(systemName: "stop.fill")
+//                Image(systemName: "stop.fill")
+                Text("Stop Record")
                 .frame(width:100,height: 100)
                     //...
             }
             
             Button(action: self.anaTest){
-                Image(systemName: "camera")
+                Text("FFT")
                     .frame(width:100,height: 100)
+            }
+            Text("\(self.FFTResults.count)")
+            ScrollView{
+                
+                ForEach(0..<self.FFTResults.count, id: \.self){(i) in
+                    Text("Freq\(self.FFTResults[i].freq):\(self.FFTResults[i].Amp)")
+                }
+                
             }
             
         }
