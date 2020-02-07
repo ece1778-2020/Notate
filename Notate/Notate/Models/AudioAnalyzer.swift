@@ -17,8 +17,8 @@ class AudioAnalyze{
     let frequencies: [Float] = [1, 5, 25, 30, 75, 100,
                                 300, 500, 512, 1023]
     
-    
-    func analysis(){
+    var FFTResults : [FFTResult]=[]
+    func analysis()->[FFTResult]{
         print(n)
         
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -102,6 +102,8 @@ class AudioAnalyze{
         print(componentFrequencies)
         for freq in componentFrequencies{
             print("Freq:\(freq) : \(forwardOutputImag[freq-1])")
+            FFTResults.append(FFTResult(freq: freq, Amp: forwardOutputImag[freq-1]))
         }
+        return FFTResults
     }
 }
