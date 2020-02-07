@@ -20,6 +20,7 @@ struct SingleKeyTestView: View {
     }
     var body: some View {
         VStack{
+
             Button(action: {self.audioRecorder.startRecording()}) {
 //                Image(systemName: "circle.fill")
                 Text("Start Record")

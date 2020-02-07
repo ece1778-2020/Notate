@@ -10,7 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        SingleKeyTestView(audioRecorder: AudioRecorder())
+        TimerView(timerhelper: TimerHelper())
+//        SingleKeyTestView(audioRecorder: AudioRecorder())
     }
 }
 
