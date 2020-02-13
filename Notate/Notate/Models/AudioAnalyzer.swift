@@ -20,7 +20,9 @@ class AudioAnalyze{
     var FFTResults : [FFTResult]=[]
     func analysis()->[FFTResult]{
         print(n)
-        
+        let sampleRate = 42000
+        let TimeInterval = 1.0/Float(sampleRate)
+        let totSamples = 2000
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let filePath = documentPath.appendingPathComponent("Test.m4a")
         
@@ -29,7 +31,7 @@ class AudioAnalyze{
         let file = try! AVAudioFile(forReading: filePath)
         let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: file.fileFormat.sampleRate, channels: 1, interleaved: false)
 
-        let buf = AVAudioPCMBuffer(pcmFormat: format!, frameCapacity: 1024)
+        let buf = AVAudioPCMBuffer(pcmFormat: format!, frameCapacity: (AVAudioFrameCount(totSamples)))
         try! file.read(into: buf!)
 
         // this makes a copy, you might not want that
@@ -37,7 +39,7 @@ class AudioAnalyze{
         
         let signal=floatArray
 
-        print("floatArray \(floatArray)\n")
+//        print("floatArray \(floatArray)\n")
         
 //        let tau: Float = .pi * 2
 //        let signal: [Float] = (0 ... n).map { index in
@@ -101,8 +103,9 @@ class AudioAnalyze{
         // Prints "[1, 5, 25, 30, 75, 100, 300, 500, 512, 1023]"
         print(componentFrequencies)
         for freq in componentFrequencies{
-            print("Freq:\(freq) : \(forwardOutputImag[freq-1])")
-            FFTResults.append(FFTResult(freq: freq, Amp: forwardOutputImag[freq-1]))
+            let rFreq = Float(freq)/Float(totSamples)/TimeInterval
+            print("Freq:\(rFreq) : \(forwardOutputImag[freq-1])")
+            FFTResults.append(FFTResult(freq: rFreq, Amp: forwardOutputImag[freq-1]))
         }
         return FFTResults
     }

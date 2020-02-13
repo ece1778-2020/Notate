@@ -9,9 +9,9 @@
 import Foundation
 
 class FFTResult{
-    var freq: Int
+    var freq: Float
     var Amp: Float
-    init(freq:Int,Amp:Float) {
+    init(freq:Float,Amp:Float) {
         self.freq = freq
         self.Amp = Amp
     }
