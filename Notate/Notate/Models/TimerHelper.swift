@@ -15,8 +15,22 @@ class TimerHelper: ObservableObject {
     @Published var count = 5
     @Published var stop = true
     @Published var recording = false
+    @Published var bpm = 60
     
     let metronome = Metronome()
+    
+    func playMetronome () {
+        if self.timer == nil {
+            self.timer = Timer.scheduledTimer(withTimeInterval: 60.0 / Double(self.bpm), repeats: true, block: { _ in
+                self.metronome.playSound(sound: "MetroBar1", type: "wav")
+            })
+        }
+    }
+    
+    func stopMetronome() {
+        self.timer?.invalidate()
+        self.timer = nil
+    }
     
     func startRecording () {
         if self.timer == nil || self.stop == true {

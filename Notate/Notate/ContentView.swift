@@ -11,7 +11,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
 //        TimerView(timerhelper: TimerHelper())
-        SingleKeyTestView(audioRecorder: AudioRecorder())
+//        SingleKeyTestView(audioRecorder: AudioRecorder())
+        BPMSelectView(timerhelper: TimerHelper())
     }
 }
 
