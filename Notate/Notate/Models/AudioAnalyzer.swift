@@ -31,24 +31,16 @@ class AudioAnalyze{
 //        let url = Bundle.main.url(forResource: "Test", withExtension: "m4a")!
         let file = try! AVAudioFile(forReading: filePath)
         let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: file.fileFormat.sampleRate, channels: 1, interleaved: false)
-
+        
+        //---------------------------------
+        //Buffer the totSamples counts sample
         let buf = AVAudioPCMBuffer(pcmFormat: format!, frameCapacity: (AVAudioFrameCount(totSamples)))
         try! file.read(into: buf!)
 
-        // this makes a copy, you might not want that
         let floatArray = Array(UnsafeBufferPointer(start: buf?.floatChannelData?[0], count:Int(buf!.frameLength)))
         
         let signal=floatArray
 
-//        print("floatArray \(floatArray)\n")
-        
-//        let tau: Float = .pi * 2
-//        let signal: [Float] = (0 ... n).map { index in
-//            frequencies.reduce(0) { accumulator, frequency in
-//                let normalizedIndex = Float(index) / Float(n)
-//                return accumulator + sin(normalizedIndex * frequency * tau)
-//            }
-//        }
         
         let log2n = vDSP_Length(log2(Float(n)))
 
@@ -94,6 +86,8 @@ class AudioAnalyze{
                 }
             }
         }
+        
+        //Filter
 //        let componentFrequencies = forwardOutputImag.enumerated().filter {
 //            $0.element < -1
 //        }.map {
