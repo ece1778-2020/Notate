@@ -17,37 +17,30 @@ class AudioAnalyze{
     let frequencies: [Float] = [1, 5, 25, 30, 75, 100,
                                 300, 500, 512, 1023]
     
-    var FFTResults : [FFTResult]=[]
-    func analysis()->[FFTResult]{
+    var FFTResultsList : [FFTResult]=[]
+    func analysis(fileName:String)->[FFTResult]{
         print(n)
         let sampleRate = 42000
         let TimeInterval = 1.0/Float(sampleRate)
         let totSamples = 2000
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let filePath = documentPath.appendingPathComponent("Test.m4a")
+//        let filePath = documentPath.appendingPathComponent("Test.m4a")
+        let filePath = documentPath.appendingPathComponent(fileName)
         
 
 //        let url = Bundle.main.url(forResource: "Test", withExtension: "m4a")!
         let file = try! AVAudioFile(forReading: filePath)
         let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: file.fileFormat.sampleRate, channels: 1, interleaved: false)
-
+        
+        //---------------------------------
+        //Buffer the totSamples counts sample
         let buf = AVAudioPCMBuffer(pcmFormat: format!, frameCapacity: (AVAudioFrameCount(totSamples)))
         try! file.read(into: buf!)
 
-        // this makes a copy, you might not want that
         let floatArray = Array(UnsafeBufferPointer(start: buf?.floatChannelData?[0], count:Int(buf!.frameLength)))
         
         let signal=floatArray
 
-//        print("floatArray \(floatArray)\n")
-        
-//        let tau: Float = .pi * 2
-//        let signal: [Float] = (0 ... n).map { index in
-//            frequencies.reduce(0) { accumulator, frequency in
-//                let normalizedIndex = Float(index) / Float(n)
-//                return accumulator + sin(normalizedIndex * frequency * tau)
-//            }
-//        }
         
         let log2n = vDSP_Length(log2(Float(n)))
 
@@ -93,20 +86,25 @@ class AudioAnalyze{
                 }
             }
         }
-        let componentFrequencies = forwardOutputImag.enumerated().filter {
-            $0.element < -1
-        }.map {
-            return $0.offset
-        }
-        print(forwardOutputImag[12],forwardOutputImag[13])
         
-        // Prints "[1, 5, 25, 30, 75, 100, 300, 500, 512, 1023]"
+        //Filter
+//        let componentFrequencies = forwardOutputImag.enumerated().filter {
+//            $0.element < -1
+//        }.map {
+//            return $0.offset
+//        }
+        let componentFrequencies = forwardOutputImag.enumerated().map {
+                    return $0.offset
+                }
+        
+//        print(forwardOutputImag[12],forwardOutputImag[13])
+        //TODO: Apply filters
         print(componentFrequencies)
         for freq in componentFrequencies{
             let rFreq = Float(freq)/Float(totSamples)/TimeInterval
             print("Freq:\(rFreq) : \(forwardOutputImag[freq-1])")
-            FFTResults.append(FFTResult(freq: rFreq, Amp: forwardOutputImag[freq-1]))
+            FFTResultsList.append(FFTResult(freq: rFreq, Amp: (pow(forwardOutputImag[freq-1],2)+pow(forwardOutputReal[freq-1],2))))
         }
-        return FFTResults
+        return FFTResultsList
     }
 }
