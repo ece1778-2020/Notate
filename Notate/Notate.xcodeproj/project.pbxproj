@@ -19,6 +19,11 @@
 		29A2794723EA0A6C00521C3C /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2794623EA0A6C00521C3C /* AudioRecorder.swift */; };
 		29A2794923EA197500521C3C /* AudioAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2794823EA197500521C3C /* AudioAnalyzer.swift */; };
 		29A2794B23ED166E00521C3C /* FFTResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2794A23ED166E00521C3C /* FFTResult.swift */; };
+		81C3DB36835841428FFE8A57 /* Pods_Notate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 256D167194A20C172BFFF86E /* Pods_Notate.framework */; };
+		C79107015BAAA93482490AF0 /* Pods_NotateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F62E75BC62E6A7AEB5539A3 /* Pods_NotateTests.framework */; };
+		E992E05C6DBD0673E3F734E2 /* Pods_Notate_NotateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262C341665E4E54E3F783C95 /* Pods_Notate_NotateUITests.framework */; };
+		F5118273240D9A630088DD95 /* LyricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5118272240D9A630088DD95 /* LyricsView.swift */; };
+		F5118275240D9C4E0088DD95 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5118274240D9C4E0088DD95 /* TextView.swift */; };
 		F589B4BA23ECA70800F80545 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589B4B923ECA70800F80545 /* TimerView.swift */; };
 		F589B4BE23ECBF9E00F80545 /* TimerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589B4BD23ECBF9E00F80545 /* TimerHelper.swift */; };
 		F589B4C223ECCF0900F80545 /* MetroBar1.wav in Resources */ = {isa = PBXBuildFile; fileRef = F589B4C123ECCF0900F80545 /* MetroBar1.wav */; };
@@ -44,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F62E75BC62E6A7AEB5539A3 /* Pods_NotateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		256D167194A20C172BFFF86E /* Pods_Notate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		262C341665E4E54E3F783C95 /* Pods_Notate_NotateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notate_NotateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29A2790E23E9FC0C00521C3C /* Notate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29A2791123E9FC0C00521C3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29A2791323E9FC0C00521C3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +70,14 @@
 		29A2794623EA0A6C00521C3C /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		29A2794823EA197500521C3C /* AudioAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAnalyzer.swift; sourceTree = "<group>"; };
 		29A2794A23ED166E00521C3C /* FFTResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFTResult.swift; sourceTree = "<group>"; };
+		A5298C789F0B270E03717BE4 /* Pods-NotateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotateTests.debug.xcconfig"; path = "Target Support Files/Pods-NotateTests/Pods-NotateTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A8ECC3F18FBFC41836C4CAAB /* Pods-Notate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notate.debug.xcconfig"; path = "Target Support Files/Pods-Notate/Pods-Notate.debug.xcconfig"; sourceTree = "<group>"; };
+		BC37AD0A4ED9C03515ABA1A6 /* Pods-Notate-NotateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notate-NotateUITests.debug.xcconfig"; path = "Target Support Files/Pods-Notate-NotateUITests/Pods-Notate-NotateUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C22EBD260EF09AE5BAB4FEC3 /* Pods-NotateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotateTests.release.xcconfig"; path = "Target Support Files/Pods-NotateTests/Pods-NotateTests.release.xcconfig"; sourceTree = "<group>"; };
+		D98C889E4C98FFEF88C468C9 /* Pods-Notate-NotateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notate-NotateUITests.release.xcconfig"; path = "Target Support Files/Pods-Notate-NotateUITests/Pods-Notate-NotateUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DC5191EC44DD4976446C751F /* Pods-Notate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notate.release.xcconfig"; path = "Target Support Files/Pods-Notate/Pods-Notate.release.xcconfig"; sourceTree = "<group>"; };
+		F5118272240D9A630088DD95 /* LyricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsView.swift; sourceTree = "<group>"; };
+		F5118274240D9C4E0088DD95 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		F589B4B923ECA70800F80545 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		F589B4BD23ECBF9E00F80545 /* TimerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHelper.swift; sourceTree = "<group>"; };
 		F589B4C123ECCF0900F80545 /* MetroBar1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = MetroBar1.wav; sourceTree = "<group>"; };
@@ -74,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81C3DB36835841428FFE8A57 /* Pods_Notate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C79107015BAAA93482490AF0 /* Pods_NotateTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,12 +106,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E992E05C6DBD0673E3F734E2 /* Pods_Notate_NotateUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2234A5AE09D9679CCB47ED72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A8ECC3F18FBFC41836C4CAAB /* Pods-Notate.debug.xcconfig */,
+				DC5191EC44DD4976446C751F /* Pods-Notate.release.xcconfig */,
+				BC37AD0A4ED9C03515ABA1A6 /* Pods-Notate-NotateUITests.debug.xcconfig */,
+				D98C889E4C98FFEF88C468C9 /* Pods-Notate-NotateUITests.release.xcconfig */,
+				A5298C789F0B270E03717BE4 /* Pods-NotateTests.debug.xcconfig */,
+				C22EBD260EF09AE5BAB4FEC3 /* Pods-NotateTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		29A2790523E9FC0C00521C3C = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +134,8 @@
 				29A2792723E9FC0F00521C3C /* NotateTests */,
 				29A2793223E9FC0F00521C3C /* NotateUITests */,
 				29A2790F23E9FC0C00521C3C /* Products */,
+				2234A5AE09D9679CCB47ED72 /* Pods */,
+				4C5BCB4874F55B1E7A2E1588 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +199,7 @@
 				29A2794423EA06A400521C3C /* SingleKeyTestView.swift */,
 				F589B4B923ECA70800F80545 /* TimerView.swift */,
 				F5ED16A52401C2F40008741D /* BPMSelectView.swift */,
+				F5118272240D9A630088DD95 /* LyricsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,8 +219,19 @@
 				29A2794A23ED166E00521C3C /* FFTResult.swift */,
 				F589B4BD23ECBF9E00F80545 /* TimerHelper.swift */,
 				F589B4C323ECCF5800F80545 /* Metronome.swift */,
+				F5118274240D9C4E0088DD95 /* TextView.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4C5BCB4874F55B1E7A2E1588 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				256D167194A20C172BFFF86E /* Pods_Notate.framework */,
+				262C341665E4E54E3F783C95 /* Pods_Notate_NotateUITests.framework */,
+				1F62E75BC62E6A7AEB5539A3 /* Pods_NotateTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		F589B4C523ECD18400F80545 /* Audio */ = {
@@ -202,9 +249,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29A2793823E9FC0F00521C3C /* Build configuration list for PBXNativeTarget "Notate" */;
 			buildPhases = (
+				21A2696183A9921F1C426771 /* [CP] Check Pods Manifest.lock */,
 				29A2790A23E9FC0C00521C3C /* Sources */,
 				29A2790B23E9FC0C00521C3C /* Frameworks */,
 				29A2790C23E9FC0C00521C3C /* Resources */,
+				954952F42AADDD098FF4F9F0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -219,6 +268,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29A2793B23E9FC0F00521C3C /* Build configuration list for PBXNativeTarget "NotateTests" */;
 			buildPhases = (
+				273CABB779E45D541A2A99DF /* [CP] Check Pods Manifest.lock */,
 				29A2792023E9FC0F00521C3C /* Sources */,
 				29A2792123E9FC0F00521C3C /* Frameworks */,
 				29A2792223E9FC0F00521C3C /* Resources */,
@@ -237,9 +287,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29A2793E23E9FC0F00521C3C /* Build configuration list for PBXNativeTarget "NotateUITests" */;
 			buildPhases = (
+				3B9CB002FA6BB6A7DD4FEFDC /* [CP] Check Pods Manifest.lock */,
 				29A2792B23E9FC0F00521C3C /* Sources */,
 				29A2792C23E9FC0F00521C3C /* Frameworks */,
 				29A2792D23E9FC0F00521C3C /* Resources */,
+				E747213922F72904E99A69B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -322,6 +374,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		21A2696183A9921F1C426771 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Notate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		273CABB779E45D541A2A99DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NotateTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B9CB002FA6BB6A7DD4FEFDC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Notate-NotateUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		954952F42AADDD098FF4F9F0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Notate/Pods-Notate-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Notate/Pods-Notate-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Notate/Pods-Notate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E747213922F72904E99A69B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Notate-NotateUITests/Pods-Notate-NotateUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Notate-NotateUITests/Pods-Notate-NotateUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Notate-NotateUITests/Pods-Notate-NotateUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		29A2790A23E9FC0C00521C3C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -330,7 +485,9 @@
 				F589B4C423ECCF5800F80545 /* Metronome.swift in Sources */,
 				F589B4BA23ECA70800F80545 /* TimerView.swift in Sources */,
 				29A2794523EA06A400521C3C /* SingleKeyTestView.swift in Sources */,
+				F5118275240D9C4E0088DD95 /* TextView.swift in Sources */,
 				29A2791223E9FC0C00521C3C /* AppDelegate.swift in Sources */,
+				F5118273240D9A630088DD95 /* LyricsView.swift in Sources */,
 				29A2791423E9FC0C00521C3C /* SceneDelegate.swift in Sources */,
 				F589B4BE23ECBF9E00F80545 /* TimerHelper.swift in Sources */,
 				29A2791623E9FC0C00521C3C /* ContentView.swift in Sources */,
@@ -500,6 +657,7 @@
 		};
 		29A2793923E9FC0F00521C3C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8ECC3F18FBFC41836C4CAAB /* Pods-Notate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -520,6 +678,7 @@
 		};
 		29A2793A23E9FC0F00521C3C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC5191EC44DD4976446C751F /* Pods-Notate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -540,6 +699,7 @@
 		};
 		29A2793C23E9FC0F00521C3C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5298C789F0B270E03717BE4 /* Pods-NotateTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -562,6 +722,7 @@
 		};
 		29A2793D23E9FC0F00521C3C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C22EBD260EF09AE5BAB4FEC3 /* Pods-NotateTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -584,6 +745,7 @@
 		};
 		29A2793F23E9FC0F00521C3C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC37AD0A4ED9C03515ABA1A6 /* Pods-Notate-NotateUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -604,6 +766,7 @@
 		};
 		29A2794023E9FC0F00521C3C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D98C889E4C98FFEF88C468C9 /* Pods-Notate-NotateUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

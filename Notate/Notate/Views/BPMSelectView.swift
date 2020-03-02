@@ -13,7 +13,9 @@ struct BPMSelectView: View {
     
     var body: some View {
         VStack {
-            Stepper("\(timerhelper.bpm) BPM", value: $timerhelper.bpm, in: 60...180)
+            Text("\(Int(timerhelper.bpm)) BPM")
+                .padding()
+            Slider(value: $timerhelper.bpm, in: 60...180, step: 1)
                 .padding()
             HStack {
                 Button(action: {

@@ -10,9 +10,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        TabView {
+            BPMSelectView(timerhelper: TimerHelper())
+                .tabItem {
+                    Text("Metronome")
+            }
+            
+            LyricsView()
+                .tabItem {
+                    Text("Lyrics Page")
+            }
+        }
 //        TimerView(timerhelper: TimerHelper())
 //        SingleKeyTestView(audioRecorder: AudioRecorder())
-        BPMSelectView(timerhelper: TimerHelper())
+        
     }
 }
 
