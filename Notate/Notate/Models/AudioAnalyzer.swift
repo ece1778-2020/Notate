@@ -17,14 +17,15 @@ class AudioAnalyze{
     let frequencies: [Float] = [1, 5, 25, 30, 75, 100,
                                 300, 500, 512, 1023]
     
-    var FFTResults : [FFTResult]=[]
-    func analysis()->[FFTResult]{
+    var FFTResultsList : [FFTResult]=[]
+    func analysis(fileName:String)->[FFTResult]{
         print(n)
         let sampleRate = 42000
         let TimeInterval = 1.0/Float(sampleRate)
         let totSamples = 2000
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let filePath = documentPath.appendingPathComponent("Test.m4a")
+//        let filePath = documentPath.appendingPathComponent("Test.m4a")
+        let filePath = documentPath.appendingPathComponent(fileName)
         
 
 //        let url = Bundle.main.url(forResource: "Test", withExtension: "m4a")!
@@ -93,20 +94,23 @@ class AudioAnalyze{
                 }
             }
         }
-        let componentFrequencies = forwardOutputImag.enumerated().filter {
-            $0.element < -1
-        }.map {
-            return $0.offset
-        }
-        print(forwardOutputImag[12],forwardOutputImag[13])
+//        let componentFrequencies = forwardOutputImag.enumerated().filter {
+//            $0.element < -1
+//        }.map {
+//            return $0.offset
+//        }
+        let componentFrequencies = forwardOutputImag.enumerated().map {
+                    return $0.offset
+                }
         
-        // Prints "[1, 5, 25, 30, 75, 100, 300, 500, 512, 1023]"
+//        print(forwardOutputImag[12],forwardOutputImag[13])
+        //TODO: Apply filters
         print(componentFrequencies)
         for freq in componentFrequencies{
             let rFreq = Float(freq)/Float(totSamples)/TimeInterval
             print("Freq:\(rFreq) : \(forwardOutputImag[freq-1])")
-            FFTResults.append(FFTResult(freq: rFreq, Amp: forwardOutputImag[freq-1]))
+            FFTResultsList.append(FFTResult(freq: rFreq, Amp: (pow(forwardOutputImag[freq-1],2)+pow(forwardOutputReal[freq-1],2))))
         }
-        return FFTResults
+        return FFTResultsList
     }
 }
