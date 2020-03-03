@@ -20,6 +20,12 @@ struct ContentView: View {
                 .tabItem {
                     Text("Lyrics Page")
             }
+            
+            SingleKeyTestView(audioRecorder: AudioRecorder())
+                .tabItem {
+                    Text("Single Pitch Test")
+            }
+            
         }
 //        TimerView(timerhelper: TimerHelper())
 //        SingleKeyTestView(audioRecorder: AudioRecorder())

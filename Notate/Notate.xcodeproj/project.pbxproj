@@ -123,13 +123,13 @@
 				A5298C789F0B270E03717BE4 /* Pods-NotateTests.debug.xcconfig */,
 				C22EBD260EF09AE5BAB4FEC3 /* Pods-NotateTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		29A2790523E9FC0C00521C3C = {
 			isa = PBXGroup;
 			children = (
+				F5118276240DBAE50088DD95 /* Images */,
 				29A2791023E9FC0C00521C3C /* Notate */,
 				29A2792723E9FC0F00521C3C /* NotateTests */,
 				29A2793223E9FC0F00521C3C /* NotateUITests */,
@@ -232,6 +232,13 @@
 				1F62E75BC62E6A7AEB5539A3 /* Pods_NotateTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5118276240DBAE50088DD95 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		F589B4C523ECD18400F80545 /* Audio */ = {
@@ -662,7 +669,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Notate/Preview Content\"";
-				DEVELOPMENT_TEAM = 9N6XMYX48R;
+				DEVELOPMENT_TEAM = 4WM4ZBJ6S6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Notate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -683,7 +690,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Notate/Preview Content\"";
-				DEVELOPMENT_TEAM = 9N6XMYX48R;
+				DEVELOPMENT_TEAM = 4WM4ZBJ6S6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Notate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -16,7 +16,7 @@ struct SingleKeyTestView: View {
     @State var FFTResults : [FFTResult]=[]
     func anaTest(){
         var A = AudioAnalyze()
-        self.FFTResults=A.analysis()
+        self.FFTResults=A.analysis(fileName: "Test.m4a")
     }
     var body: some View {
         VStack{
