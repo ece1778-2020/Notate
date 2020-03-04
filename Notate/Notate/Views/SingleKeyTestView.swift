@@ -51,6 +51,13 @@ struct SingleKeyTestView: View {
             }
             
         }
+            .background(
+            Image("background")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .edgesIgnoringSafeArea(.all)
+            )
+            
         .onAppear() {
             self.navigationBarIsHidden = false
         }

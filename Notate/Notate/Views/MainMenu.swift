@@ -15,7 +15,7 @@ struct MainMenu: View {
         NavigationView {
             VStack {
                 Spacer()
-                    .frame(height: 50)
+                    .frame(height: 40)
                 
                 
                 Text("NOTATE")
