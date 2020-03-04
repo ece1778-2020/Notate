@@ -35,12 +35,13 @@ class AudioRecorder: ObservableObject {
         
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let audioFilename = documentPath.appendingPathComponent("Test.m4a")
+        print("record1")
         
 
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVSampleRateKey: 42000,
+            AVSampleRateKey: 12000,
             AVNumberOfChannelsKey: 1,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
@@ -57,6 +58,7 @@ class AudioRecorder: ObservableObject {
     }
     
     func stopRecording() {
+        print("record2")
         audioRecorder.stop()
         recording = false
     }

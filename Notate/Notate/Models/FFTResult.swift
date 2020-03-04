@@ -11,6 +11,7 @@ import Foundation
 class FFTResult{
     var freq: Float
     var Amp: Float
+    var Note : String = ""
     init(freq:Float,Amp:Float) {
         self.freq = freq
         self.Amp = Amp

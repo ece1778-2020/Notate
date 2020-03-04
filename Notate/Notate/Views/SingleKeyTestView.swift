@@ -43,7 +43,7 @@ struct SingleKeyTestView: View {
             ScrollView{
                 
                 ForEach(0..<self.FFTResults.count, id: \.self){(i) in
-                    Text("Freq\(self.FFTResults[i].freq):\(self.FFTResults[i].Amp)")
+                    Text("\(self.FFTResults[i].Note) / \(self.FFTResults[i].freq)")
                 }
                 
             }
