@@ -149,7 +149,8 @@ class AudioAnalyze{
             note_step+=1
         }
         var res_note : String = note_at_freq_list[rest_step]
-        res_note=res_note.replacingOccurrences(of: "i", with: String(note_step))
+//        res_note=res_note.replacingOccurrences(of: "i", with: String(note_step))
+        res_note=res_note.replacingOccurrences(of: "i", with: "")
         print(freq,n,note_step,rest_step,res_note)
         return res_note
     }

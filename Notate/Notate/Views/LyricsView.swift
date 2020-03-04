@@ -67,18 +67,31 @@ struct LyricsView: View {
             .frame(maxWidth: .infinity)
             .aspectRatio(contentMode: .fit)
             TextView(text: $text)
-                .background(Color(red: 200 / 255, green: 200 / 255, blue: 200 / 255))
+                .background(Color.white)
                 .cornerRadius(10)
+                .opacity(0.7)
                 .frame(height: self.obj.size)
             HStack {
+                Spacer()
+                    .frame(width: 10)
                 TextField("Filename", text: $filename)
                     .padding()
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .opacity(0.7)
+                    
                 Spacer()
                 Button(action: {
                     self.saveFile()
                 }) {
                     Text("Save")
+                        .font(.subheadline)
+                        .foregroundColor(Color.white)
                         .padding()
+                        .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+                        .padding()
+                        .shadow(radius: 10)
+                        
                 }
             }
 //            Button(action: {
@@ -88,13 +101,21 @@ struct LyricsView: View {
 //            }
         }
             
-        .alert(isPresented: self.$show_alert) {
-            Alert(title: Text(self.alert_message))
-        }
+            .alert(isPresented: self.$show_alert) {
+                Alert(title: Text(self.alert_message))
+            }
+            
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            .background(
+            Image("background")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .edgesIgnoringSafeArea(.all)
+            )
         
-        .onAppear() {
-            self.navigationBarIsHidden = false
-        }
+            .onAppear() {
+                self.navigationBarIsHidden = false
+            }
         
     }
 }
