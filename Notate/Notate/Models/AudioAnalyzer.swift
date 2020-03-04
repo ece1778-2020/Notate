@@ -119,14 +119,14 @@ class AudioAnalyze{
         self.freq_to_note(freq: max_freq_coe.freq)
         tmp_FFTResultsList.sort(by: {$0.Amp > $1.Amp})
         var i : Int = 0
-        i = max(5,tmp_FFTResultsList.count)
-        FFTResultsList=Array(tmp_FFTResultsList[0...i])
-//        while (i<tmp_FFTResultsList.count && i<5){
-//            var a :FFTResult = FFTResult(freq: tmp_FFTResultsList[i].freq, Amp: tmp_FFTResultsList[i].Amp)
-//            a.Note=self.freq_to_note(freq: a.freq)
-//            FFTResultsList.append(a)
-//            i+=1
-//        }
+//        i = min(5,tmp_FFTResultsList.count)-1
+//        FFTResultsList=Array(tmp_FFTResultsList[0...i])
+        while (i<tmp_FFTResultsList.count && i<5){
+            var a :FFTResult = FFTResult(freq: tmp_FFTResultsList[i].freq, Amp: tmp_FFTResultsList[i].Amp)
+            a.Note=self.freq_to_note(freq: a.freq)
+            FFTResultsList.append(a)
+            i+=1
+        }
         return FFTResultsList
     }
     
