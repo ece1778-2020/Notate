@@ -58,6 +58,17 @@ struct MainMenu: View {
                         .shadow(radius: 10)
                 }
                 
+                NavigationLink(destination: CountDownBox()) {
+                    Text("Timmer Box")
+                        .font(.subheadline)
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(Color.white)
+                        .padding()
+                        .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+                        .padding()
+                        .shadow(radius: 10)
+                }
+                
                 Spacer()
             }
             .background(

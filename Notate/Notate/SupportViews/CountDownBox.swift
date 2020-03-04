@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CountDownBox: View {
-    @State var timeRemaining = 10
+    @State var timeRemaining = 3
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var body: some View {
         Text("\(timeRemaining)")
