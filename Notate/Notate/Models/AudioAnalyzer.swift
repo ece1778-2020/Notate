@@ -98,7 +98,7 @@ class AudioAnalyze{
         let componentFrequencies = forwardOutputImag.enumerated().map {
                     return $0.offset
                 }
-        
+        //FIXME: 123
 //        print(forwardOutputImag[12],forwardOutputImag[13])
         //TODO: Apply filters
         print(componentFrequencies)
