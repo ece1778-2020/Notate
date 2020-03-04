@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		299283FD2410319000295BD4 /* CountDownBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299283FC2410319000295BD4 /* CountDownBox.swift */; };
 		29A2791223E9FC0C00521C3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2791123E9FC0C00521C3C /* AppDelegate.swift */; };
 		29A2791423E9FC0C00521C3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2791323E9FC0C00521C3C /* SceneDelegate.swift */; };
 		29A2791623E9FC0C00521C3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2791523E9FC0C00521C3C /* ContentView.swift */; };
@@ -52,6 +53,7 @@
 		1F62E75BC62E6A7AEB5539A3 /* Pods_NotateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NotateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		256D167194A20C172BFFF86E /* Pods_Notate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		262C341665E4E54E3F783C95 /* Pods_Notate_NotateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notate_NotateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		299283FC2410319000295BD4 /* CountDownBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownBox.swift; sourceTree = "<group>"; };
 		29A2790E23E9FC0C00521C3C /* Notate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29A2791123E9FC0C00521C3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29A2791323E9FC0C00521C3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 		29A2794223EA035C00521C3C /* SupportViews */ = {
 			isa = PBXGroup;
 			children = (
+				299283FC2410319000295BD4 /* CountDownBox.swift */,
 			);
 			path = SupportViews;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				F589B4C423ECCF5800F80545 /* Metronome.swift in Sources */,
 				F589B4BA23ECA70800F80545 /* TimerView.swift in Sources */,
 				29A2794523EA06A400521C3C /* SingleKeyTestView.swift in Sources */,
+				299283FD2410319000295BD4 /* CountDownBox.swift in Sources */,
 				F5118275240D9C4E0088DD95 /* TextView.swift in Sources */,
 				29A2791223E9FC0C00521C3C /* AppDelegate.swift in Sources */,
 				F5118273240D9A630088DD95 /* LyricsView.swift in Sources */,
