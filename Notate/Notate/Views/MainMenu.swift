@@ -19,7 +19,7 @@ struct MainMenu: View {
                 
                 
                 Text("NOTATE")
-                    .font(.system(size: 60))
+                    .font(Font.system(size: 60))
                     .foregroundColor(.white)
                 
                 Spacer()

@@ -13,13 +13,14 @@ struct BPMSelectView: View {
     @Binding var navigationBarIsHidden: Bool
     
     func adjustMetronome () -> Double {
-        return 1.1
+        self.timerhelper.updateInterval()
+        return self.timerhelper.bpm
     }
     
     var body: some View {
         VStack {
             VStack {
-                Text("\(Int(timerhelper.bpm)) BPM")
+                Text("\(Int(adjustMetronome())) BPM")
                     .padding()
                 Slider(value: $timerhelper.bpm, in: 60...180, step: 1)
                     .padding()

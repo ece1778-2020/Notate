@@ -28,6 +28,15 @@ class TimerHelper: ObservableObject {
         }
     }
     
+    func updateInterval () {
+        if self.timer != nil {
+            if self.timer.timeInterval != 60.0 / Double(self.bpm) {
+                self.stopMetronome()
+                self.playMetronome()
+            }
+        }
+    }
+    
     func stopMetronome() {
         self.timer?.invalidate()
         self.timer = nil
