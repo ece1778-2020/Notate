@@ -10,7 +10,7 @@ import SwiftUI
 
 struct BPMSelectView: View {
     @ObservedObject var timerhelper: TimerHelper
-    
+    @Binding var navigationBarIsHidden: Bool
     var body: some View {
         VStack {
             Text("\(Int(timerhelper.bpm)) BPM")
@@ -34,12 +34,15 @@ struct BPMSelectView: View {
             }
             
         }
-        
+        .onAppear() {
+        self.navigationBarIsHidden = false
+    }
+    
     }
 }
 
-struct BPMSelectView_Previews: PreviewProvider {
-    static var previews: some View {
-        BPMSelectView(timerhelper: TimerHelper())
-    }
-}
+//struct BPMSelectView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BPMSelectView(timerhelper: TimerHelper())
+//    }
+//}

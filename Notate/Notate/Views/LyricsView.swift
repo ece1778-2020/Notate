@@ -14,6 +14,7 @@ struct LyricsView: View {
     @State var show_alert = false
     @State var alert_message = ""
     @EnvironmentObject var obj: Observed
+    @Binding var navigationBarIsHidden: Bool
     
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -91,11 +92,15 @@ struct LyricsView: View {
             Alert(title: Text(self.alert_message))
         }
         
+        .onAppear() {
+            self.navigationBarIsHidden = false
+        }
+        
     }
 }
 
-struct LyricsView_Previews: PreviewProvider {
-    static var previews: some View {
-        LyricsView()
-    }
-}
+//struct LyricsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LyricsView()
+//    }
+//}

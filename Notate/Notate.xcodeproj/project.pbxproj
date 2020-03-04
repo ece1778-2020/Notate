@@ -28,6 +28,7 @@
 		F589B4BE23ECBF9E00F80545 /* TimerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589B4BD23ECBF9E00F80545 /* TimerHelper.swift */; };
 		F589B4C223ECCF0900F80545 /* MetroBar1.wav in Resources */ = {isa = PBXBuildFile; fileRef = F589B4C123ECCF0900F80545 /* MetroBar1.wav */; };
 		F589B4C423ECCF5800F80545 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589B4C323ECCF5800F80545 /* Metronome.swift */; };
+		F5B7FD562410350B007DBD6B /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B7FD552410350B007DBD6B /* MainMenu.swift */; };
 		F5ED16A62401C2F40008741D /* BPMSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED16A52401C2F40008741D /* BPMSelectView.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		F589B4BD23ECBF9E00F80545 /* TimerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHelper.swift; sourceTree = "<group>"; };
 		F589B4C123ECCF0900F80545 /* MetroBar1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = MetroBar1.wav; sourceTree = "<group>"; };
 		F589B4C323ECCF5800F80545 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
+		F5B7FD552410350B007DBD6B /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		F5ED16A52401C2F40008741D /* BPMSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMSelectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,6 +203,7 @@
 				F589B4B923ECA70800F80545 /* TimerView.swift */,
 				F5ED16A52401C2F40008741D /* BPMSelectView.swift */,
 				F5118272240D9A630088DD95 /* LyricsView.swift */,
+				F5B7FD552410350B007DBD6B /* MainMenu.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				29A2791423E9FC0C00521C3C /* SceneDelegate.swift in Sources */,
 				F589B4BE23ECBF9E00F80545 /* TimerHelper.swift in Sources */,
 				29A2791623E9FC0C00521C3C /* ContentView.swift in Sources */,
+				F5B7FD562410350B007DBD6B /* MainMenu.swift in Sources */,
 				29A2794B23ED166E00521C3C /* FFTResult.swift in Sources */,
 				29A2794923EA197500521C3C /* AudioAnalyzer.swift in Sources */,
 				29A2794723EA0A6C00521C3C /* AudioRecorder.swift in Sources */,

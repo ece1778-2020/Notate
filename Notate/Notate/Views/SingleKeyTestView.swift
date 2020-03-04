@@ -14,6 +14,8 @@ import AVFoundation
 struct SingleKeyTestView: View {
     @ObservedObject var audioRecorder: AudioRecorder
     @State var FFTResults : [FFTResult]=[]
+    @Binding var navigationBarIsHidden: Bool
+    
     func anaTest(){
         var A = AudioAnalyze()
         self.FFTResults=A.analysis(fileName: "Test.m4a")
@@ -49,12 +51,15 @@ struct SingleKeyTestView: View {
             }
             
         }
+        .onAppear() {
+            self.navigationBarIsHidden = false
+        }
     }
 }
 
 
-struct SingleKeyTestView_Previews: PreviewProvider {
-    static var previews: some View {
-        SingleKeyTestView(audioRecorder: AudioRecorder())
-    }
-}
+//struct SingleKeyTestView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SingleKeyTestView(audioRecorder: AudioRecorder())
+//    }
+//}
