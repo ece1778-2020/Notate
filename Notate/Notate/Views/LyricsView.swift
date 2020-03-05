@@ -62,11 +62,9 @@ struct LyricsView: View {
     
     var body: some View {
         ScrollView {
-            Image("lyrics_top")
-                .resizable()
-                .frame(maxWidth: .infinity)
-                .aspectRatio(contentMode: .fit)
-                .opacity(0.7)
+            
+            Spacer()
+                .frame(height: 20)
             
             TextView(text: $text)
                 .background(Color.white)
@@ -104,7 +102,7 @@ struct LyricsView: View {
 //                Text("test")
 //            }
         }
-            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarTitle("Lyrics", displayMode: .inline)
             
             .alert(isPresented: self.$show_alert) {
                 Alert(title: Text(self.alert_message))

@@ -17,9 +17,11 @@ struct BPMSelectView: View {
         return self.timerhelper.bpm
     }
     
+
     
     var body: some View {
         VStack {
+            
             VStack {
                 Text("\(Int(adjustMetronome())) BPM")
                     .padding()
@@ -57,7 +59,7 @@ struct BPMSelectView: View {
             
             
         }
-            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarTitle("Metronome", displayMode: .inline)
             
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             .background(
