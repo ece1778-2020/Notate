@@ -80,7 +80,7 @@ struct SingleKeyTestView: View {
                         .onReceive(timer) { _ in
                             if (self.timeRemaining > 0 && self.isRecorderStart) {
                                 self.timeRemaining -= 1
-                                self.CountDownText = "\(self.timeRemaining)"
+                                self.CountDownText = "Starting in \(self.timeRemaining)"
                             }else if (self.timeRemaining == 0 && self.isRecorderStart){
                                 self.timeRemaining -= 1
                                 self.CountDownText = "Start"
@@ -89,39 +89,49 @@ struct SingleKeyTestView: View {
                                 self.CountDownText = "\(-self.timeRemaining)"
                             }
                         }
-
+                    
+                    Spacer()
                     
                     Text("\(self.FFTResults.count)")
-                        .frame(maxWidth: .infinity)
-                        .background(Color.white)
-                        .opacity(0.7)
-                        .padding()
+                        
+                    Spacer()
+                    
                     ScrollView{
-                        
-                        ForEach(0..<self.FFTResults.count, id: \.self){(i) in
-                            Text("\(self.FFTResults[i].Note) / \(self.FFTResults[i].freq)")
-
+                        Group {
+                            if self.FFTResults.count != 0 {
+                                Text("\(self.FFTResults[0].Note) / \(self.FFTResults[0].freq)")
+                            }
                         }
-                        .frame(maxWidth: .infinity)
-                        .background(Color.white)
-                        .cornerRadius(10)
-                        .opacity(0.7)
-                        .padding()
                         
+                        
+//                        ForEach(0..<self.FFTResults.count, id: \.self){(i) in
+//                            Text("\(self.FFTResults[i].Note) / \(self.FFTResults[i].freq)")
+//
+//                        }
+//                        .frame(maxWidth: .infinity)
+//                        .background(Color.white)
+//                        .cornerRadius(10)
+//                        .opacity(0.7)
+//                        .padding()
+//
                     }
                 }
-//                .frame(maxWidth: 200, maxHeight: 300)
-//                .background(Color.white)
-//                .cornerRadius(20)
-//                .opacity(0.7)
+                    .frame(maxWidth: .infinity, maxHeight: 200)
+                    .background(Color.white)
+                    .cornerRadius(20)
+                    .padding()
+                    
+                    .opacity(0.7)
 //
             }
             
             
         }
+            .navigationBarTitle("", displayMode: .inline)
+            
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             .background(
-            Image("background")
+            Image("record_background")
             .resizable()
             .aspectRatio(contentMode: .fill)
             .edgesIgnoringSafeArea(.all)

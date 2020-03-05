@@ -17,6 +17,7 @@ struct BPMSelectView: View {
         return self.timerhelper.bpm
     }
     
+    
     var body: some View {
         VStack {
             VStack {
@@ -29,14 +30,24 @@ struct BPMSelectView: View {
                         self.timerhelper.playMetronome()
                     }) {
                         Text("play")
+                            .font(.subheadline)
+                            .foregroundColor(Color.white)
                             .padding()
+                            .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+                            .padding()
+                            .shadow(radius: 10)
                     }
                     
                     Button(action: {
                         self.timerhelper.stopMetronome()
                     }) {
                         Text("stop")
+                            .font(.subheadline)
+                            .foregroundColor(Color.white)
                             .padding()
+                            .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+                            .padding()
+                            .shadow(radius: 10)
                     }
                 }
             }
@@ -46,18 +57,20 @@ struct BPMSelectView: View {
             
             
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-        .background(
-        Image("background")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .edgesIgnoringSafeArea(.all)
-        )
+            .navigationBarTitle("", displayMode: .inline)
+            
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            .background(
+            Image("metronome_background")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .edgesIgnoringSafeArea(.all)
+            )
+            
+            .onAppear() {
+                self.navigationBarIsHidden = false
+            }
         
-        .onAppear() {
-            self.navigationBarIsHidden = false
-        }
-    
     }
 }
 

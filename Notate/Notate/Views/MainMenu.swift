@@ -11,6 +11,12 @@ import SwiftUI
 struct MainMenu: View {
     @State var navigationBarIsHidden: Bool = true
     
+    init () {
+        UINavigationBar.appearance().barTintColor = .clear
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().tintColor = UIColor.white
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -58,16 +64,16 @@ struct MainMenu: View {
                         .shadow(radius: 10)
                 }
                 
-                NavigationLink(destination: CountDownBox()) {
-                    Text("Timmer Box")
-                        .font(.subheadline)
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(Color.white)
-                        .padding()
-                        .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
-                        .padding()
-                        .shadow(radius: 10)
-                }
+//                NavigationLink(destination: CountDownBox()) {
+//                    Text("Timmer Box")
+//                        .font(.subheadline)
+//                        .frame(maxWidth: .infinity)
+//                        .foregroundColor(Color.white)
+//                        .padding()
+//                        .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+//                        .padding()
+//                        .shadow(radius: 10)
+//                }
                 
                 Spacer()
             }

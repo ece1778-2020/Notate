@@ -63,14 +63,18 @@ struct LyricsView: View {
     var body: some View {
         ScrollView {
             Image("lyrics_top")
-            .resizable()
-            .frame(maxWidth: .infinity)
-            .aspectRatio(contentMode: .fit)
+                .resizable()
+                .frame(maxWidth: .infinity)
+                .aspectRatio(contentMode: .fit)
+                .opacity(0.7)
+            
             TextView(text: $text)
                 .background(Color.white)
                 .cornerRadius(10)
                 .opacity(0.7)
                 .frame(height: self.obj.size)
+                .padding(10)
+            
             HStack {
                 Spacer()
                     .frame(width: 10)
@@ -100,6 +104,7 @@ struct LyricsView: View {
 //                Text("test")
 //            }
         }
+            .navigationBarTitle("", displayMode: .inline)
             
             .alert(isPresented: self.$show_alert) {
                 Alert(title: Text(self.alert_message))
@@ -107,7 +112,7 @@ struct LyricsView: View {
             
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             .background(
-            Image("background")
+            Image("lyrics_background")
             .resizable()
             .aspectRatio(contentMode: .fill)
             .edgesIgnoringSafeArea(.all)
