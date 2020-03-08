@@ -22,7 +22,7 @@ struct MainMenu: View {
         NavigationView {
             VStack {
                 Spacer()
-                    .frame(height: 40)
+                    .frame(height:0)
                 
                 
                 Text("NOTATE")
@@ -30,7 +30,7 @@ struct MainMenu: View {
                     .foregroundColor(.white)
                 
                 Spacer()
-                    .frame(height: 100)
+                    .frame(height: 70)
                 
                 NavigationLink(destination: BPMSelectView(timerhelper: TimerHelper(), navigationBarIsHidden: self.$navigationBarIsHidden)) {
                     Text("Metronome")
@@ -77,6 +77,7 @@ struct MainMenu: View {
 //                }
                 
                 Spacer()
+                .frame(height: 200)
             }
             .background(
             Image("background")

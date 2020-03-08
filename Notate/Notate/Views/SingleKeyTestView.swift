@@ -75,10 +75,7 @@ struct SingleKeyTestView: View {
                     .shadow(radius: 10)
                 }
                 
-//                Button(action: self.anaTest){
-//                    Text("FFT")
-//                        .frame(width:100,height: 100)
-//                }
+
                 
                 VStack {
                     Text("\(CountDownText)")
@@ -96,12 +93,11 @@ struct SingleKeyTestView: View {
                             }
                         }
                     
-                    Spacer()
+//                    Spacer()
                     
                     Text("\(self.FFTResults.count)")
                         .hidden()
-                        
-                    Spacer()
+                    
                     
                     ScrollView{
                         Group {
@@ -110,28 +106,16 @@ struct SingleKeyTestView: View {
                                     .font(.system(size:60))
                             }
                         }
-                        
-                        
-//                        ForEach(0..<self.FFTResults.count, id: \.self){(i) in
-//                            Text("\(self.FFTResults[i].Note) / \(self.FFTResults[i].freq)")
-//
-//                        }
-//                        .frame(maxWidth: .infinity)
-//                        .background(Color.white)
-//                        .cornerRadius(10)
-//                        .opacity(0.7)
-//                        .padding()
-//
                     }
                 }
-                    .frame(maxWidth: .infinity, maxHeight: 200)
+                    .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.size.height*0.3)
                     .background(Color.white)
                     .cornerRadius(20)
                     .padding()
-                    
                     .opacity(0.7)
+//                    .frame(width: UIScreen.main.bounds.size.width*0.8, height: UIScreen.main.bounds.size.height*0.7)
 //
-            }
+            }.offset(y:-UIScreen.main.bounds.size.height*0.08)
             
             
         }
