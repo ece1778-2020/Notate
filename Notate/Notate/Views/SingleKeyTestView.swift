@@ -17,6 +17,7 @@ struct SingleKeyTestView: View {
     @State var CountDownText: String = ""
     @State var timeRemaining = 3
     @State var isRecorderStart : Bool = false
+    @State var isRecorderStartAsyn : Bool = false
     @Binding var navigationBarIsHidden: Bool
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -27,15 +28,19 @@ struct SingleKeyTestView: View {
     }
     
     func stop_analysis(){
-        self.audioRecorder.stopRecording()
-        self.anaTest()
-        self.isRecorderStart=false
-        self.timeRemaining=3
-        self.CountDownText=""
+        if self.isRecorderStartAsyn{
+            self.audioRecorder.stopRecording()
+            self.anaTest()
+            self.isRecorderStart=false
+            self.isRecorderStartAsyn=false
+            self.timeRemaining=3
+            self.CountDownText=""
+        }
     }
     
     func start_record(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            self.isRecorderStartAsyn=true
                             self.audioRecorder.startRecording()
                         }
         
@@ -77,11 +82,12 @@ struct SingleKeyTestView: View {
                 
                 VStack {
                     Text("\(CountDownText)")
+                        .font(.system(size:60))
                         .onReceive(timer) { _ in
-                            if (self.timeRemaining > 0 && self.isRecorderStart) {
+                            if (self.timeRemaining > 1 && self.isRecorderStart) {
                                 self.timeRemaining -= 1
                                 self.CountDownText = "Starting in \(self.timeRemaining)"
-                            }else if (self.timeRemaining == 0 && self.isRecorderStart){
+                            }else if (self.timeRemaining == 1 && self.isRecorderStart){
                                 self.timeRemaining -= 1
                                 self.CountDownText = "Start"
                             }else if (self.isRecorderStart){
@@ -93,13 +99,15 @@ struct SingleKeyTestView: View {
                     Spacer()
                     
                     Text("\(self.FFTResults.count)")
+                        .hidden()
                         
                     Spacer()
                     
                     ScrollView{
                         Group {
                             if self.FFTResults.count != 0 {
-                                Text("\(self.FFTResults[0].Note) / \(self.FFTResults[0].freq)")
+                                Text("\(self.FFTResults[0].Note)")
+                                    .font(.system(size:60))
                             }
                         }
                         
