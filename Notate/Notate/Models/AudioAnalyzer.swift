@@ -38,7 +38,7 @@ class AudioAnalyze{
         //Buffer the totSamples counts sample
         let buf = AVAudioPCMBuffer(pcmFormat: format!, frameCapacity: (AVAudioFrameCount(totSamples)))
         try! file.read(into: buf!)
-
+        print(file.framePosition)
         let floatArray = Array(UnsafeBufferPointer(start: buf?.floatChannelData?[0], count:Int(buf!.frameLength)))
         
         let signal=floatArray
