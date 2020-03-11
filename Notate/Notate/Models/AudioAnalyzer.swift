@@ -115,6 +115,7 @@ class AudioAnalyze{
                 }
                 return FFTResultsList[0]
     }
+
     
     func audio_slicer(fileName:String,startPosition:Int64)->AVAudioPCMBuffer{
         let totSamples = 4096
@@ -126,6 +127,36 @@ class AudioAnalyze{
         let buf = AVAudioPCMBuffer(pcmFormat: format!, frameCapacity: (AVAudioFrameCount(totSamples)))
         try! file.read(into: buf!)
         return buf!
+    }
+    
+    func get_start_point(fileName:String) -> Int64{
+        var startFramePosition : Int64 = 0
+        var arrayStartFramePosition  = 0
+        var arrayCountSize  = 120
+        var frameCountSize = 1200
+        var preSliceSum : Float = 0
+        var curSliceSum : Float = 0
+        let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let filePath = documentPath.appendingPathComponent(fileName)
+                
+        let file = try! AVAudioFile(forReading: filePath)
+        let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: file.fileFormat.sampleRate, channels: 1, interleaved: false)
+        while true{
+            file.framePosition=startFramePosition
+            let buf = AVAudioPCMBuffer(pcmFormat: format!, frameCapacity: (AVAudioFrameCount(frameCountSize)))
+            try! file.read(into: buf!)
+            let floatArray = Array(UnsafeBufferPointer(start: buf?.floatChannelData?[0], count:Int(buf!.frameLength)))
+            arrayStartFramePosition = 0
+            while (arrayStartFramePosition+arrayCountSize<=frameCountSize){
+                curSliceSum=floatArray[arrayStartFramePosition...arrayStartFramePosition+arrayCountSize-1].reduce(0, +)
+                if (preSliceSum>0 && curSliceSum>preSliceSum*2){
+                    return startFramePosition+Int64(arrayStartFramePosition)
+                }
+                preSliceSum=curSliceSum
+                arrayStartFramePosition+=arrayCountSize
+            }
+            startFramePosition+=Int64(frameCountSize)
+        }
     }
     
     func analysis2(fileName:String)->[FFTResult]{
