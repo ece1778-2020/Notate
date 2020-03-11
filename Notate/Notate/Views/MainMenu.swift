@@ -22,7 +22,7 @@ struct MainMenu: View {
         NavigationView {
             VStack {
                 Spacer()
-                    .frame(height:0)
+                    .frame(height:100)
                 
                 
                 Text("NOTATE")
@@ -65,16 +65,16 @@ struct MainMenu: View {
                         .shadow(radius: 10)
                 }
                 
-//                NavigationLink(destination: CountDownBox()) {
-//                    Text("Timmer Box")
-//                        .font(.subheadline)
-//                        .frame(maxWidth: .infinity)
-//                        .foregroundColor(Color.white)
-//                        .padding()
-//                        .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
-//                        .padding()
-//                        .shadow(radius: 10)
-//                }
+                NavigationLink(destination: SheetView(navigationBarIsHidden: self.$navigationBarIsHidden)) {
+                    Text("Sheet Music")
+                        .font(.subheadline)
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(Color.white)
+                        .padding()
+                        .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+                        .padding()
+                        .shadow(radius: 10)
+                }
                 
                 Spacer()
                 .frame(height: 200)

@@ -30,6 +30,11 @@
 		F589B4C223ECCF0900F80545 /* MetroBar1.wav in Resources */ = {isa = PBXBuildFile; fileRef = F589B4C123ECCF0900F80545 /* MetroBar1.wav */; };
 		F589B4C423ECCF5800F80545 /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589B4C323ECCF5800F80545 /* Metronome.swift */; };
 		F5B7FD562410350B007DBD6B /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B7FD552410350B007DBD6B /* MainMenu.swift */; };
+		F5C4EF4024187A0E00D6A759 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EF3F24187A0E00D6A759 /* WebView.swift */; };
+		F5C4EF4224187AC900D6A759 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EF4124187AC900D6A759 /* SheetView.swift */; };
+		F5C4EF5324187DAF00D6A759 /* auto_size.css in Resources */ = {isa = PBXBuildFile; fileRef = F5C4EF5024187DAF00D6A759 /* auto_size.css */; };
+		F5C4EF5424187DAF00D6A759 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = F5C4EF5124187DAF00D6A759 /* index.html */; };
+		F5C4EF5524187DAF00D6A759 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = F5C4EF5224187DAF00D6A759 /* test.js */; };
 		F5ED16A62401C2F40008741D /* BPMSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED16A52401C2F40008741D /* BPMSelectView.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +91,11 @@
 		F589B4C123ECCF0900F80545 /* MetroBar1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = MetroBar1.wav; sourceTree = "<group>"; };
 		F589B4C323ECCF5800F80545 /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
 		F5B7FD552410350B007DBD6B /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		F5C4EF3F24187A0E00D6A759 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		F5C4EF4124187AC900D6A759 /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		F5C4EF5024187DAF00D6A759 /* auto_size.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = auto_size.css; sourceTree = "<group>"; };
+		F5C4EF5124187DAF00D6A759 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		F5C4EF5224187DAF00D6A759 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		F5ED16A52401C2F40008741D /* BPMSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMSelectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +143,9 @@
 		29A2790523E9FC0C00521C3C = {
 			isa = PBXGroup;
 			children = (
+				F5C4EF5024187DAF00D6A759 /* auto_size.css */,
+				F5C4EF5124187DAF00D6A759 /* index.html */,
+				F5C4EF5224187DAF00D6A759 /* test.js */,
 				F5118276240DBAE50088DD95 /* Images */,
 				29A2791023E9FC0C00521C3C /* Notate */,
 				29A2792723E9FC0F00521C3C /* NotateTests */,
@@ -206,6 +219,7 @@
 				F5ED16A52401C2F40008741D /* BPMSelectView.swift */,
 				F5118272240D9A630088DD95 /* LyricsView.swift */,
 				F5B7FD552410350B007DBD6B /* MainMenu.swift */,
+				F5C4EF4124187AC900D6A759 /* SheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -227,6 +241,7 @@
 				F589B4BD23ECBF9E00F80545 /* TimerHelper.swift */,
 				F589B4C323ECCF5800F80545 /* Metronome.swift */,
 				F5118274240D9C4E0088DD95 /* TextView.swift */,
+				F5C4EF3F24187A0E00D6A759 /* WebView.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -375,7 +390,10 @@
 				29A2791E23E9FC0F00521C3C /* LaunchScreen.storyboard in Resources */,
 				29A2791B23E9FC0F00521C3C /* Preview Assets.xcassets in Resources */,
 				F589B4C223ECCF0900F80545 /* MetroBar1.wav in Resources */,
+				F5C4EF5424187DAF00D6A759 /* index.html in Resources */,
 				29A2791823E9FC0F00521C3C /* Assets.xcassets in Resources */,
+				F5C4EF5524187DAF00D6A759 /* test.js in Resources */,
+				F5C4EF5324187DAF00D6A759 /* auto_size.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F589B4C423ECCF5800F80545 /* Metronome.swift in Sources */,
+				F5C4EF4024187A0E00D6A759 /* WebView.swift in Sources */,
 				F589B4BA23ECA70800F80545 /* TimerView.swift in Sources */,
 				29A2794523EA06A400521C3C /* SingleKeyTestView.swift in Sources */,
 				299283FD2410319000295BD4 /* CountDownBox.swift in Sources */,
@@ -518,6 +537,7 @@
 				29A2794923EA197500521C3C /* AudioAnalyzer.swift in Sources */,
 				29A2794723EA0A6C00521C3C /* AudioRecorder.swift in Sources */,
 				F5ED16A62401C2F40008741D /* BPMSelectView.swift in Sources */,
+				F5C4EF4224187AC900D6A759 /* SheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,7 +705,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Notate/Preview Content\"";
-				DEVELOPMENT_TEAM = 9N6XMYX48R;
+				DEVELOPMENT_TEAM = 4WM4ZBJ6S6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Notate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -706,7 +726,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Notate/Preview Content\"";
-				DEVELOPMENT_TEAM = 9N6XMYX48R;
+				DEVELOPMENT_TEAM = 4WM4ZBJ6S6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Notate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
