@@ -23,7 +23,7 @@ class AudioAnalyze{
         var tmp_FFTResultsList : [FFTResult]=[]
         let sampleRate = 12000
         let TimeInterval = 1.0/Float(sampleRate)
-        let totSamples = 4096
+        let totSamples = Int(sampleRate/2)
         let n = vDSP_Length(totSamples)
         let floatArray = Array(UnsafeBufferPointer(start: buf.floatChannelData?[0], count:Int(buf.frameLength)))
                 
@@ -74,51 +74,31 @@ class AudioAnalyze{
                         }
                     }
                 }
-                
-                //Filter
-        //        let componentFrequencies = forwardOutputImag.enumerated().filter {
-        //            $0.element < -1
-        //        }.map {
-        //            return $0.offset
-        //        }
+
                 let componentFrequencies = forwardOutputImag.enumerated().map {
                             return $0.offset
                         }
-                //FIXME: 123
         //        print(forwardOutputImag[12],forwardOutputImag[13])
-                //TODO: Apply filters
-                print(componentFrequencies)
                 var max_freq_coe  = FFTResult(freq: 0.0, Amp: 0.0)
                 for freq in componentFrequencies{
                     let rFreq = Float(freq)/Float(totSamples)*Float(sampleRate)
                     
                     let amp = (pow(forwardOutputImag[freq],2)+pow(forwardOutputReal[freq],2))
-                    print("Freq:\(rFreq) : \(amp)")
-                    if (amp > max_freq_coe.Amp){
+                    if (amp > max_freq_coe.Amp && rFreq>55){
                         max_freq_coe=FFTResult(freq: rFreq, Amp: amp)
                     }
                     
-                    tmp_FFTResultsList.append(FFTResult(freq: rFreq, Amp:amp ))
                 }
-        //        FFTResultsList.append(max_freq_coe)
-        //        images.sort({ $0.fileID > $1.fileID })
-                self.freq_to_note(freq: max_freq_coe.freq)
-                tmp_FFTResultsList.sort(by: {$0.Amp > $1.Amp})
-                var i : Int = 0
-        //        i = min(5,tmp_FFTResultsList.count)-1
-        //        FFTResultsList=Array(tmp_FFTResultsList[0...i])
-                while (i<tmp_FFTResultsList.count && i<5){
-                    var a :FFTResult = FFTResult(freq: tmp_FFTResultsList[i].freq, Amp: tmp_FFTResultsList[i].Amp)
-                    a.Note=self.freq_to_note(freq: a.freq)
-                    FFTResultsList.append(a)
-                    i+=1
-                }
-                return FFTResultsList[0]
+        print(max_freq_coe.freq)
+        max_freq_coe.Note=self.freq_to_note(freq: max_freq_coe.freq)
+                return max_freq_coe
     }
 
     
     func audio_slicer(fileName:String,startPosition:Int64)->AVAudioPCMBuffer{
-        let totSamples = 4096
+        let sampleRate = 12000
+        let TimeInterval = 1.0/Float(sampleRate)
+        let totSamples = Int(sampleRate/2)
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let filePath = documentPath.appendingPathComponent(fileName)
         let file = try! AVAudioFile(forReading: filePath)
@@ -149,7 +129,7 @@ class AudioAnalyze{
             arrayStartFramePosition = 0
             while (arrayStartFramePosition+arrayCountSize<=frameCountSize){
                 curSliceSum=floatArray[arrayStartFramePosition...arrayStartFramePosition+arrayCountSize-1].reduce(0, +)
-                if (preSliceSum>0 && curSliceSum>preSliceSum*2){
+                if (preSliceSum>0 && curSliceSum>preSliceSum*10){
                     return startFramePosition+Int64(arrayStartFramePosition)
                 }
                 preSliceSum=curSliceSum
@@ -159,15 +139,26 @@ class AudioAnalyze{
         }
     }
     
-    func analysis2(fileName:String)->[FFTResult]{
+    func multy_note(fileName:String,bpm:Int=60)->[FFTResult]{
         var tmp_FFTResultsList : [FFTResult]=[]
         let sampleRate = 12000
         let TimeInterval = 1.0/Float(sampleRate)
         let totSamples = 4096
-        let n = vDSP_Length(totSamples)
+        var startPosition : Int64 = 0
         
-        var buf=self.audio_slicer(fileName: fileName, startPosition: 0)
-        tmp_FFTResultsList.append(self.singlePitch(buf: buf))
+        let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let filePath = documentPath.appendingPathComponent(fileName)
+        let file = try! AVAudioFile(forReading: filePath)
+        let fileLength=file.length
+        
+        startPosition=self.get_start_point(fileName: fileName)
+        
+        while (Int(startPosition)+sampleRate<fileLength-1){
+            let buf = self.audio_slicer(fileName: fileName, startPosition: startPosition)
+            tmp_FFTResultsList.append(self.singlePitch(buf: buf))
+            startPosition+=Int64(sampleRate)
+        }
+        print(tmp_FFTResultsList)
         return tmp_FFTResultsList
     }
     
@@ -191,7 +182,6 @@ class AudioAnalyze{
         //Buffer the totSamples counts sample
         let buf = AVAudioPCMBuffer(pcmFormat: format!, frameCapacity: (AVAudioFrameCount(totSamples)))
         try! file.read(into: buf!)
-        print(file.framePosition)
         let floatArray = Array(UnsafeBufferPointer(start: buf?.floatChannelData?[0], count:Int(buf!.frameLength)))
         
         let signal=floatArray
@@ -251,16 +241,12 @@ class AudioAnalyze{
         let componentFrequencies = forwardOutputImag.enumerated().map {
                     return $0.offset
                 }
-        //FIXME: 123
-//        print(forwardOutputImag[12],forwardOutputImag[13])
-        //TODO: Apply filters
-        print(componentFrequencies)
         var max_freq_coe  = FFTResult(freq: 0.0, Amp: 0.0)
         for freq in componentFrequencies{
             let rFreq = Float(freq)/Float(totSamples)*Float(sampleRate)
             
             let amp = (pow(forwardOutputImag[freq],2)+pow(forwardOutputReal[freq],2))
-            print("Freq:\(rFreq) : \(amp)")
+//            print("Freq:\(rFreq) : \(amp)")
             if (amp > max_freq_coe.Amp){
                 max_freq_coe=FFTResult(freq: rFreq, Amp: amp)
             }
@@ -304,7 +290,7 @@ class AudioAnalyze{
         var res_note : String = note_at_freq_list[rest_step]
         res_note=res_note.replacingOccurrences(of: "i", with: String(note_step))
 //        res_note=res_note.replacingOccurrences(of: "i", with: "")
-        print(freq,n,note_step,rest_step,res_note)
+//        print(freq,n,note_step,rest_step,res_note)
         return res_note
     }
 }

@@ -39,13 +39,21 @@ struct SingleKeyTestView: View {
     }
     
     func start_record(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             self.isRecorderStartAsyn=true
                             self.audioRecorder.startRecording()
                         }
         
         self.isRecorderStart=true
         self.timeRemaining=3
+    }
+    
+    func get_start(){
+        var A = AudioAnalyze()
+//        print(A.multy_note(fileName: "Test.m4a"))
+        
+        self.FFTResults=A.multy_note(fileName: "Test.m4a")
+        print(self.FFTResults[1].Note)
     }
     
     var body: some View {
@@ -75,6 +83,17 @@ struct SingleKeyTestView: View {
                     .shadow(radius: 10)
                 }
                 
+                Button(action: {self.get_start()}) {
+                //                Image(systemName: "stop.fill")
+                                Text("Get Start")
+                                .font(.subheadline)
+                                .frame(maxWidth: .infinity)
+                                .foregroundColor(Color.white)
+                                .padding()
+                                .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+                                .padding()
+                                .shadow(radius: 10)
+                            }
 
                 
                 VStack {
@@ -95,17 +114,16 @@ struct SingleKeyTestView: View {
                     
 //                    Spacer()
                     
-                    Text("\(self.FFTResults.count)")
+                    
+                    
+                    
+                    ScrollView{Text("\(self.FFTResults.count)")
                         .hidden()
-                    
-                    
-                    ScrollView{
-                        Group {
-                            if self.FFTResults.count != 0 {
-                                Text("\(self.FFTResults[0].Note)")
+                                ForEach(0..<self.FFTResults.count, id: \.self){(i) in
+                                    Text("\(self.FFTResults[i].Note)")
                                     .font(.system(size:60))
-                            }
-                        }
+                                }                         
+                                
                     }
                 }
                     .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.size.height*0.3)
