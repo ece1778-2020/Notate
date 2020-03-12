@@ -91,7 +91,7 @@ class AudioAnalyze{
                 }
         print(max_freq_coe.freq)
         max_freq_coe.Note=self.freq_to_note(freq: max_freq_coe.freq)
-                return max_freq_coe
+        return max_freq_coe
     }
 
     
@@ -151,7 +151,7 @@ class AudioAnalyze{
         let file = try! AVAudioFile(forReading: filePath)
         let fileLength=file.length
         
-        startPosition=self.get_start_point(fileName: fileName)
+//        startPosition=self.get_start_point(fileName: fileName)
         
         while (Int(startPosition)+sampleRate<fileLength-1){
             let buf = self.audio_slicer(fileName: fileName, startPosition: startPosition)
