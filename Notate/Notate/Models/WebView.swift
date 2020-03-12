@@ -17,7 +17,7 @@ struct WebView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        let json: [String: String] = ["notes": "C#5/q, B4, A4, G#4"]
+        let json: [String: Any] = ["notes": ["C#5/q, B4, A4, G#4", "D#5/q, C4, F4, G#4"]]
         
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
 
