@@ -23,16 +23,19 @@ class AudioAnalyze{
         var tmp_FFTResultsList : [FFTResult]=[]
         let sampleRate = 12000
         let TimeInterval = 1.0/Float(sampleRate)
-        let totSamples = Int(sampleRate/2)
+        let totSamples = 4096
         let n = vDSP_Length(totSamples)
-        let floatArray = Array(UnsafeBufferPointer(start: buf.floatChannelData?[0], count:Int(buf.frameLength)))
-                
-                let signal=floatArray
+        
+        var floatArray = Array(UnsafeBufferPointer(start: buf.floatChannelData?[0], count:Int(buf.frameLength)))
+        var hanningWindow=[Float](repeating: 0, count: totSamples)
+        vDSP_hann_window(&hanningWindow,vDSP_Length(totSamples),Int32(vDSP_HANN_DENORM))
+        floatArray=zip(floatArray,hanningWindow).map{$0 * $1}
+        let signal=floatArray
 
                 
-                let log2n = vDSP_Length(log2(Float(n)))
+        let log2n = vDSP_Length(log2(Float(n)))
 
-                guard let fftSetUp = vDSP.FFT(log2n: log2n,
+        guard let fftSetUp = vDSP.FFT(log2n: log2n,
                                               radix: .radix2,
                                               ofType: DSPSplitComplex.self) else {
                                                 fatalError("Can't create FFT Setup.")
@@ -87,10 +90,35 @@ class AudioAnalyze{
                     if (amp > max_freq_coe.Amp && rFreq>55){
                         max_freq_coe=FFTResult(freq: rFreq, Amp: amp)
                     }
+                    tmp_FFTResultsList.append(FFTResult(freq: rFreq, Amp:amp ))
                     
                 }
-        print(max_freq_coe.freq)
-        max_freq_coe.Note=self.freq_to_note(freq: max_freq_coe.freq)
+        tmp_FFTResultsList.sort(by: {$0.Amp > $1.Amp})
+        var frequencyCount:[String:Int]=[:]
+        var cnt=0
+        var i=0
+        while (cnt<100){
+            if (tmp_FFTResultsList[i].freq<1100 && tmp_FFTResultsList[i].freq>80){
+                if (frequencyCount[self.freq_to_note(freq: tmp_FFTResultsList[i].freq)] != nil){
+                frequencyCount[self.freq_to_note(freq: tmp_FFTResultsList[i].freq)]!+=1
+                }else{
+                    frequencyCount[self.freq_to_note(freq: tmp_FFTResultsList[i].freq)]=1
+                }
+                cnt+=1
+            }
+            i+=1
+        }
+        cnt=0
+        for (key,value) in frequencyCount{
+            if (value>cnt){
+                cnt=value
+                max_freq_coe.Note=key
+            }
+        }
+//        print(max_freq_coe.freq)
+//        max_freq_coe.Note=self.freq_to_note(freq: max_freq_coe.freq)
+        print(frequencyCount)
+        print(max_freq_coe.Note)
         return max_freq_coe
     }
 
@@ -98,10 +126,11 @@ class AudioAnalyze{
     func audio_slicer(fileName:String,startPosition:Int64)->AVAudioPCMBuffer{
         let sampleRate = 12000
         let TimeInterval = 1.0/Float(sampleRate)
-        let totSamples = Int(sampleRate/2)
+        let totSamples = 4096
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let filePath = documentPath.appendingPathComponent(fileName)
         let file = try! AVAudioFile(forReading: filePath)
+//        file.framePosition=Int64(0)
         file.framePosition=startPosition
         let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: file.fileFormat.sampleRate, channels: 1, interleaved: false)
         let buf = AVAudioPCMBuffer(pcmFormat: format!, frameCapacity: (AVAudioFrameCount(totSamples)))
@@ -151,8 +180,8 @@ class AudioAnalyze{
         let file = try! AVAudioFile(forReading: filePath)
         let fileLength=file.length
         
-//        startPosition=self.get_start_point(fileName: fileName)
-        
+        startPosition=self.get_start_point(fileName: fileName)
+        print("Start at :\(startPosition)")
         while (Int(startPosition)+sampleRate<fileLength-1){
             let buf = self.audio_slicer(fileName: fileName, startPosition: startPosition)
             tmp_FFTResultsList.append(self.singlePitch(buf: buf))
