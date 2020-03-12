@@ -17,7 +17,7 @@ struct SheetView: View {
     }
     
     var body: some View {
-        WebView(request: URLRequest(url: self.getUrl()))
+        WebView(request: URLRequest(url: URL(string: "https://www.google.ca")!))
             .navigationBarTitle("Lyrics", displayMode: .inline)
             .onAppear() {
                 self.navigationBarIsHidden = true

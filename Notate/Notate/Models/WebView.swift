@@ -17,6 +17,28 @@ struct WebView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
+        let json: [String: String] = ["notes": "C#5/q, B4, A4, G#4"]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+
+        // create post request
+        let url = URL(string: "https://rc69q6tn5e.execute-api.us-east-1.amazonaws.com/dev")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+
+        request.httpBody = jsonData
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let responseJSON = responseJSON as? [String: Any] {
+                print(responseJSON)
+            }
+        }
+        task.resume()
         uiView.load(request)
     }
 }
