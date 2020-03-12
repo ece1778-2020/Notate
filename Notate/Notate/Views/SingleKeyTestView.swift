@@ -15,7 +15,7 @@ struct SingleKeyTestView: View {
     @ObservedObject var audioRecorder: AudioRecorder
     @State var FFTResults : [FFTResult]=[]
     @State var CountDownText: String = ""
-    @State var timeRemaining = 3
+    @State var timeRemaining = 6
     @State var isRecorderStart : Bool = false
     @State var isRecorderStartAsyn : Bool = false
     @Binding var navigationBarIsHidden: Bool
@@ -33,19 +33,19 @@ struct SingleKeyTestView: View {
             self.anaTest()
             self.isRecorderStart=false
             self.isRecorderStartAsyn=false
-            self.timeRemaining=3
+            self.timeRemaining=6
             self.CountDownText=""
         }
     }
     
     func start_record(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                             self.isRecorderStartAsyn=true
                             self.audioRecorder.startRecording()
                         }
         
         self.isRecorderStart=true
-        self.timeRemaining=3
+        self.timeRemaining=6
     }
     
     func get_start(){
@@ -125,6 +125,7 @@ struct SingleKeyTestView: View {
                                 }                         
                                 
                     }
+                    .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.size.height*0.3)
                 }
                     .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.size.height*0.3)
                     .background(Color.white)
