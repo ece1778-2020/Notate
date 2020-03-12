@@ -25,7 +25,6 @@
 		E992E05C6DBD0673E3F734E2 /* Pods_Notate_NotateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262C341665E4E54E3F783C95 /* Pods_Notate_NotateUITests.framework */; };
 		F5118273240D9A630088DD95 /* LyricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5118272240D9A630088DD95 /* LyricsView.swift */; };
 		F5118275240D9C4E0088DD95 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5118274240D9C4E0088DD95 /* TextView.swift */; };
-		F51A718A2419CFB6002A2AD9 /* notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = F51A71892419CFB6002A2AD9 /* notes.txt */; };
 		F589B4BA23ECA70800F80545 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589B4B923ECA70800F80545 /* TimerView.swift */; };
 		F589B4BE23ECBF9E00F80545 /* TimerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589B4BD23ECBF9E00F80545 /* TimerHelper.swift */; };
 		F589B4C223ECCF0900F80545 /* MetroBar1.wav in Resources */ = {isa = PBXBuildFile; fileRef = F589B4C123ECCF0900F80545 /* MetroBar1.wav */; };
@@ -87,7 +86,6 @@
 		DC5191EC44DD4976446C751F /* Pods-Notate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notate.release.xcconfig"; path = "Target Support Files/Pods-Notate/Pods-Notate.release.xcconfig"; sourceTree = "<group>"; };
 		F5118272240D9A630088DD95 /* LyricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsView.swift; sourceTree = "<group>"; };
 		F5118274240D9C4E0088DD95 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
-		F51A71892419CFB6002A2AD9 /* notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notes.txt; sourceTree = "<group>"; };
 		F589B4B923ECA70800F80545 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		F589B4BD23ECBF9E00F80545 /* TimerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHelper.swift; sourceTree = "<group>"; };
 		F589B4C123ECCF0900F80545 /* MetroBar1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = MetroBar1.wav; sourceTree = "<group>"; };
@@ -276,7 +274,6 @@
 				F5C4EF5024187DAF00D6A759 /* auto_size.css */,
 				F5C4EF5124187DAF00D6A759 /* index.html */,
 				F5C4EF5224187DAF00D6A759 /* test.js */,
-				F51A71892419CFB6002A2AD9 /* notes.txt */,
 			);
 			path = Web;
 			sourceTree = "<group>";
@@ -398,7 +395,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F51A718A2419CFB6002A2AD9 /* notes.txt in Resources */,
 				29A2791E23E9FC0F00521C3C /* LaunchScreen.storyboard in Resources */,
 				29A2791B23E9FC0F00521C3C /* Preview Assets.xcassets in Resources */,
 				F589B4C223ECCF0900F80545 /* MetroBar1.wav in Resources */,
