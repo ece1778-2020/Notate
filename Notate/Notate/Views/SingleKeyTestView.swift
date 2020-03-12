@@ -40,9 +40,9 @@ struct SingleKeyTestView: View {
     
     func start_record(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                            self.isRecorderStartAsyn=true
-                            self.audioRecorder.startRecording()
-                        }
+            self.isRecorderStartAsyn=true
+            self.audioRecorder.startRecording()
+        }
         
         self.isRecorderStart=true
         self.timeRemaining=6

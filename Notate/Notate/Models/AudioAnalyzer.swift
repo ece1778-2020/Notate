@@ -158,7 +158,8 @@ class AudioAnalyze{
             arrayStartFramePosition = 0
             while (arrayStartFramePosition+arrayCountSize<=frameCountSize){
                 curSliceSum=floatArray[arrayStartFramePosition...arrayStartFramePosition+arrayCountSize-1].reduce(0, +)
-                if (preSliceSum>0 && curSliceSum>preSliceSum*10){
+                if (preSliceSum>0 && curSliceSum>preSliceSum*10 && curSliceSum>0.1){
+                    print("sum:\(curSliceSum)")
                     return startFramePosition+Int64(arrayStartFramePosition)
                 }
                 preSliceSum=curSliceSum
@@ -183,7 +184,7 @@ class AudioAnalyze{
         startPosition=self.get_start_point(fileName: fileName)
         print("Start at :\(startPosition)")
         while (Int(startPosition)+sampleRate<fileLength-1){
-            let buf = self.audio_slicer(fileName: fileName, startPosition: startPosition)
+            let buf = self.audio_slicer(fileName: fileName, startPosition: (startPosition+Int64(300)))
             tmp_FFTResultsList.append(self.singlePitch(buf: buf))
             startPosition+=Int64(sampleRate)
         }
@@ -299,6 +300,9 @@ class AudioAnalyze{
     }
     
     func freq_to_note(freq:Float)->String{
+        if (freq<55){
+            return "Error"
+        }
         let note_at_freq_list=["Ai","Ai#","Bi","Ci","Ci#","Di","Di#","Ei","Fi","Fi#","Gi","Gi#"]
         let A1 :Float = 55.00
         let A4 :Float = 440.00
