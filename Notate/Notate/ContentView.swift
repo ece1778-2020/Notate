@@ -10,8 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-//        MainMenu()
-        TimerView(timerhelper: TimerHelper())
+        MainMenu()
+//        TimerView(timerhelper: TimerHelper())
     }
 }
 

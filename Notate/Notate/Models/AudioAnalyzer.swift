@@ -97,8 +97,12 @@ class AudioAnalyze{
         var frequencyCount:[String:Int]=[:]
         var cnt=0
         var i=0
-        while (cnt<100){
+        while (cnt<10){
             if (tmp_FFTResultsList[i].freq<1100 && tmp_FFTResultsList[i].freq>80){
+                let note_return = self.freq_to_note(freq: tmp_FFTResultsList[i].freq)
+                if (note_return == "OR"){
+                    continue
+                }
                 if (frequencyCount[self.freq_to_note(freq: tmp_FFTResultsList[i].freq)] != nil){
                 frequencyCount[self.freq_to_note(freq: tmp_FFTResultsList[i].freq)]!+=1
                 }else{
@@ -314,6 +318,13 @@ class AudioAnalyze{
         } else{
             step = Int(n)+1
         }
+        
+        let acc_freq=pow(2.0,Float(step)/12.0)*A1
+        if (abs(freq-acc_freq)>30){
+            return "OR"
+        }
+        
+        
         var note_step:Int = (step / 12 )+1
         let rest_step:Int = step % 12
         
