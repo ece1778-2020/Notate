@@ -115,14 +115,15 @@ struct SingleKeyTestView: View {
 //                    Spacer()
                     
                     
-                    
-                    
-                    ScrollView{Text("\(self.FFTResults.count)")
-                        .hidden()
-                                ForEach(0..<self.FFTResults.count, id: \.self){(i) in
-                                    Text("\(self.FFTResults[i].Note)")
-                                    .font(.system(size:60))
-                                }                         
+                    ScrollView{
+                        Text("")
+                            .frame(maxWidth: .infinity)
+                        Text("\(self.FFTResults.count)")
+                            .hidden()
+                        ForEach(0..<self.FFTResults.count, id: \.self){(i) in
+                            Text("\(self.FFTResults[i].Note)")
+                            .font(.system(size:60))
+                        }
                                 
                     }
                     .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.size.height*0.3)
