@@ -25,6 +25,7 @@
 		E992E05C6DBD0673E3F734E2 /* Pods_Notate_NotateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 262C341665E4E54E3F783C95 /* Pods_Notate_NotateUITests.framework */; };
 		F5118273240D9A630088DD95 /* LyricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5118272240D9A630088DD95 /* LyricsView.swift */; };
 		F5118275240D9C4E0088DD95 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5118274240D9C4E0088DD95 /* TextView.swift */; };
+		F55B61832422FF720049E5FA /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55B61822422FF720049E5FA /* ScoresView.swift */; };
 		F589B4BA23ECA70800F80545 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589B4B923ECA70800F80545 /* TimerView.swift */; };
 		F589B4BE23ECBF9E00F80545 /* TimerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589B4BD23ECBF9E00F80545 /* TimerHelper.swift */; };
 		F589B4C223ECCF0900F80545 /* MetroBar1.wav in Resources */ = {isa = PBXBuildFile; fileRef = F589B4C123ECCF0900F80545 /* MetroBar1.wav */; };
@@ -86,6 +87,7 @@
 		DC5191EC44DD4976446C751F /* Pods-Notate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notate.release.xcconfig"; path = "Target Support Files/Pods-Notate/Pods-Notate.release.xcconfig"; sourceTree = "<group>"; };
 		F5118272240D9A630088DD95 /* LyricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricsView.swift; sourceTree = "<group>"; };
 		F5118274240D9C4E0088DD95 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		F55B61822422FF720049E5FA /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
 		F589B4B923ECA70800F80545 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		F589B4BD23ECBF9E00F80545 /* TimerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHelper.swift; sourceTree = "<group>"; };
 		F589B4C123ECCF0900F80545 /* MetroBar1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = MetroBar1.wav; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				F5118272240D9A630088DD95 /* LyricsView.swift */,
 				F5B7FD552410350B007DBD6B /* MainMenu.swift */,
 				F5C4EF4124187AC900D6A759 /* SheetView.swift */,
+				F55B61822422FF720049E5FA /* ScoresView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				29A2791623E9FC0C00521C3C /* ContentView.swift in Sources */,
 				F5B7FD562410350B007DBD6B /* MainMenu.swift in Sources */,
 				29A2794B23ED166E00521C3C /* FFTResult.swift in Sources */,
+				F55B61832422FF720049E5FA /* ScoresView.swift in Sources */,
 				29A2794923EA197500521C3C /* AudioAnalyzer.swift in Sources */,
 				29A2794723EA0A6C00521C3C /* AudioRecorder.swift in Sources */,
 				F5ED16A62401C2F40008741D /* BPMSelectView.swift in Sources */,
