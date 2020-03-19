@@ -37,6 +37,7 @@
 		F5C4EF5324187DAF00D6A759 /* auto_size.css in Resources */ = {isa = PBXBuildFile; fileRef = F5C4EF5024187DAF00D6A759 /* auto_size.css */; };
 		F5C4EF5424187DAF00D6A759 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = F5C4EF5124187DAF00D6A759 /* index.html */; };
 		F5C4EF5524187DAF00D6A759 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = F5C4EF5224187DAF00D6A759 /* test.js */; };
+		F5D92AC824243ADC002F3345 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D92AC724243ADC002F3345 /* StringExtension.swift */; };
 		F5ED16A62401C2F40008741D /* BPMSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ED16A52401C2F40008741D /* BPMSelectView.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		F5C4EF5024187DAF00D6A759 /* auto_size.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = auto_size.css; sourceTree = "<group>"; };
 		F5C4EF5124187DAF00D6A759 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		F5C4EF5224187DAF00D6A759 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
+		F5D92AC724243ADC002F3345 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		F5ED16A52401C2F40008741D /* BPMSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMSelectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -246,6 +248,7 @@
 				F589B4BD23ECBF9E00F80545 /* TimerHelper.swift */,
 				F589B4C323ECCF5800F80545 /* Metronome.swift */,
 				F5118274240D9C4E0088DD95 /* TextView.swift */,
+				F5D92AC724243ADC002F3345 /* StringExtension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				29A2791423E9FC0C00521C3C /* SceneDelegate.swift in Sources */,
 				F589B4BE23ECBF9E00F80545 /* TimerHelper.swift in Sources */,
 				29A2791623E9FC0C00521C3C /* ContentView.swift in Sources */,
+				F5D92AC824243ADC002F3345 /* StringExtension.swift in Sources */,
 				F5B7FD562410350B007DBD6B /* MainMenu.swift in Sources */,
 				29A2794B23ED166E00521C3C /* FFTResult.swift in Sources */,
 				F55B61832422FF720049E5FA /* ScoresView.swift in Sources */,
@@ -721,7 +725,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Notate/Preview Content\"";
-				DEVELOPMENT_TEAM = 9N6XMYX48R;
+				DEVELOPMENT_TEAM = 4WM4ZBJ6S6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Notate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -742,7 +746,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Notate/Preview Content\"";
-				DEVELOPMENT_TEAM = 9N6XMYX48R;
+				DEVELOPMENT_TEAM = 4WM4ZBJ6S6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Notate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

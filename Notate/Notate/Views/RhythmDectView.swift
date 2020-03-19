@@ -20,11 +20,46 @@ struct RhythmDectView: View {
     @State var isRecorderStart : Bool = false
     @State var isRecorderStartAsyn : Bool = false
     @Binding var navigationBarIsHidden: Bool
+    @EnvironmentObject var observed: Observed
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
+    func convertToNotes() {
+        var index = 0
+        var part = ""
+        var output = [String]()
+        for result in self.FFTResults {
+            var cao = result.Note
+            if cao.contains("#") {
+                cao = String(cao[0]) + "#" + String(cao[1])
+            }
+            index += 1
+            if part == "" {
+                part = cao + "/q"
+            }
+            else {
+                part = part + ", " + cao
+            }
+            if index == 4 {
+                output.append(part)
+                part = ""
+                index = 0
+            }
+        }
+        while index > 0 && index < 4 {
+            part = part + ", " + "F4/r"
+            index += 1
+        }
+        if part != "" {
+            output.append(part)
+        }
+        observed.notes = output
+        print(output)
+        
+    }
+    
     func anaTest(){
-
-        var A = AudioAnalyze()
+        let A = AudioAnalyze()
         self.FFTResults=A.analysis(fileName: "Test.m4a")
     }
     
@@ -84,17 +119,21 @@ struct RhythmDectView: View {
                     .shadow(radius: 10)
                 }
                 
-                Button(action: {self.get_start()}) {
-                //                Image(systemName: "stop.fill")
-                                Text("Get Start")
-                                .font(.subheadline)
-                                .frame(maxWidth: .infinity)
-                                .foregroundColor(Color.white)
-                                .padding()
-                                .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
-                                .padding()
-                                .shadow(radius: 10)
-                            }
+                Button(action: {
+                    self.get_start()
+                    self.convertToNotes()
+                }) {
+    //                Image(systemName: "stop.fill")
+                    Text("Get Start")
+                    .font(.subheadline)
+                    .frame(maxWidth: .infinity)
+                    .foregroundColor(Color.white)
+                    .padding()
+                    .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+                    .padding()
+                    .shadow(radius: 10)
+                }
+
 
                 
                 VStack {
@@ -136,7 +175,7 @@ struct RhythmDectView: View {
                     .opacity(0.7)
 //                    .frame(width: UIScreen.main.bounds.size.width*0.8, height: UIScreen.main.bounds.size.height*0.7)
 //
-            }.offset(y:-UIScreen.main.bounds.size.height*0.08)
+            }.offset(y:-UIScreen.main.bounds.size.height*0.02)
             
             
         }

@@ -54,7 +54,7 @@ struct MainMenu: View {
                         .shadow(radius: 10)
                 }
                 
-                NavigationLink(destination: SingleKeyTestView(audioRecorder: AudioRecorder(), navigationBarIsHidden: self.$navigationBarIsHidden)) {
+                NavigationLink(destination: RhythmDectView(audioRecorder: AudioRecorder(), navigationBarIsHidden: self.$navigationBarIsHidden)) {
                     Text("Single Pitch Test")
                         .font(.subheadline)
                         .frame(maxWidth: .infinity)

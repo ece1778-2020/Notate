@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SheetView: View {
     @Binding var navigationBarIsHidden: Bool
+    @EnvironmentObject var observed: Observed
     
     func getUrl() -> URL {
         let url = Bundle.main.url(forResource: "index", withExtension: "html")!
@@ -17,7 +18,7 @@ struct SheetView: View {
     }
     
     var body: some View {
-        WebView(request: URLRequest(url: URL(string: "https://www.google.ca")!))
+        WebView(request: URLRequest(url: URL(string: "https://www.google.ca")!), notes: observed.notes)
             .navigationBarTitle("Lyrics", displayMode: .inline)
             .onAppear() {
                 self.navigationBarIsHidden = true

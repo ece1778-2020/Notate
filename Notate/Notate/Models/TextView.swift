@@ -60,5 +60,5 @@ struct TextView: UIViewRepresentable {
 
 class Observed: ObservableObject {
     @Published var size: CGFloat = 0
-    @Published var notes = ""
+    @Published var notes = [String]()
 }
