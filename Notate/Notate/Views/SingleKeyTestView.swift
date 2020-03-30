@@ -23,7 +23,7 @@ struct SingleKeyTestView: View {
     
     func anaTest(){
 
-        var A = AudioAnalyze()
+        let A = AudioAnalyze()
         self.FFTResults=A.analysis(fileName: "Test.m4a")
     }
     
@@ -49,7 +49,7 @@ struct SingleKeyTestView: View {
     }
     
     func get_start(){
-        var A = AudioAnalyze()
+        let A = AudioAnalyze()
 //        print(A.multy_note(fileName: "Test.m4a"))
         
         self.FFTResults=A.multy_note(fileName: "Test.m4a")

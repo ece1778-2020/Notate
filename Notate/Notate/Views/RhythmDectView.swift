@@ -20,6 +20,8 @@ struct RhythmDectView: View {
     @State var isRecorderStart : Bool = false
     @State var isRecorderStartAsyn : Bool = false
     @Binding var navigationBarIsHidden: Bool
+    @State var show_sheet: Bool = false
+    @State var hide_navi_bar = false
     @EnvironmentObject var observed: Observed
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -85,7 +87,7 @@ struct RhythmDectView: View {
     }
     
     func get_start(){
-        var A = AudioAnalyze()
+        let A = AudioAnalyze()
 //        print(A.multy_note(fileName: "Test.m4a"))
         
         self.FFTResults=A.multy_note(fileName: "Test.m4a")
@@ -93,105 +95,135 @@ struct RhythmDectView: View {
     }
     
     var body: some View {
-        VStack{
-            VStack {
-                Button(action: {self.start_record()}) {
-    //                Image(systemName: "circle.fill")
-                    Text("Start Record")
-                    .font(.subheadline)
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(Color.white)
-                    .padding()
-                    .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
-                    .padding()
-                    .shadow(radius: 10)
-                }
-                
-                Button(action: {self.stop_analysis()}) {
-    //                Image(systemName: "stop.fill")
-                    Text("Stop Record")
-                    .font(.subheadline)
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(Color.white)
-                    .padding()
-                    .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
-                    .padding()
-                    .shadow(radius: 10)
-                }
-                
-                Button(action: {
-                    self.get_start()
-                    self.convertToNotes()
-                }) {
-    //                Image(systemName: "stop.fill")
-                    Text("Get Start")
-                    .font(.subheadline)
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(Color.white)
-                    .padding()
-                    .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
-                    .padding()
-                    .shadow(radius: 10)
-                }
-
-
+        NavigationView {
+            ScrollView{
                 
                 VStack {
-                    Text("\(CountDownText)")
-                        .font(.system(size:60))
-                        .onReceive(timer) { _ in
-                            if (self.timeRemaining > 1 && self.isRecorderStart) {
-                                self.timeRemaining -= 1
-                                self.CountDownText = "Starting in \(self.timeRemaining)"
-                            }else if (self.timeRemaining == 1 && self.isRecorderStart){
-                                self.timeRemaining -= 1
-                                self.CountDownText = "Start"
-                            }else if (self.isRecorderStart){
-                                self.timeRemaining -= 1
-                                self.CountDownText = "\(-self.timeRemaining)"
-                            }
-                        }
-                    
-//                    Spacer()
-                    
-                    
-                    ScrollView{
-                        Text("")
-                            .frame(maxWidth: .infinity)
-                        Text("\(self.FFTResults.count)")
-                            .hidden()
-                        ForEach(0..<self.FFTResults.count, id: \.self){(i) in
-                            Text("\(self.FFTResults[i].Note)")
-                            .font(.system(size:60))
-                        }
-                                
+                    Button(action: {self.start_record()}) {
+        //                Image(systemName: "circle.fill")
+                        Text("Start Record")
+                        .font(.subheadline)
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(Color.white)
+                        .padding()
+                        .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+                        .padding()
+                        .shadow(radius: 10)
                     }
-                    .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.size.height*0.3)
-                }
-                    .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.size.height*0.3)
-                    .background(Color.white)
-                    .cornerRadius(20)
-                    .padding()
-                    .opacity(0.7)
-//                    .frame(width: UIScreen.main.bounds.size.width*0.8, height: UIScreen.main.bounds.size.height*0.7)
+                    
+                    Button(action: {
+                        self.stop_analysis()
+                        self.get_start()
+                        self.convertToNotes()
+                    }) {
+        //                Image(systemName: "stop.fill")
+                        Text("Stop Record")
+                        .font(.subheadline)
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(Color.white)
+                        .padding()
+                        .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+                        .padding()
+                        .shadow(radius: 10)
+                    }
+                    
+//                    Button(action: {
 //
-            }.offset(y:-UIScreen.main.bounds.size.height*0.02)
-            
-            
+//                        self.show_sheet.toggle()
+//                    }) {
+//        //                Image(systemName: "stop.fill")
+//                        Text("Sheet Music")
+//                        .font(.subheadline)
+//                        .frame(maxWidth: .infinity)
+//                        .foregroundColor(Color.white)
+//                        .padding()
+//                        .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+//                        .padding()
+//                        .shadow(radius: 10)
+//                    }
+
+                    NavigationLink(destination:
+                        SheetView(hide_navi_bar: self.$hide_navi_bar)
+                        .navigationBarTitle("", displayMode: .inline)
+                    ) {
+                        Text("Sheet Music")
+                            .font(.subheadline)
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(Color.white)
+                            .padding()
+                            .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+                            .padding()
+                            .shadow(radius: 10)
+                    }
+                    
+                    
+                    VStack {
+                        Text("\(CountDownText)")
+                            .font(.system(size:60))
+                            .onReceive(timer) { _ in
+                                if (self.timeRemaining > 1 && self.isRecorderStart) {
+                                    self.timeRemaining -= 1
+                                    self.CountDownText = "Starting in \(self.timeRemaining)"
+                                }else if (self.timeRemaining == 1 && self.isRecorderStart){
+                                    self.timeRemaining -= 1
+                                    self.CountDownText = "Start"
+                                }else if (self.isRecorderStart){
+                                    self.timeRemaining -= 1
+                                    self.CountDownText = "\(-self.timeRemaining)"
+                                }
+                            }
+                        
+    //                    Spacer()
+                        
+                        
+                        ScrollView{
+                            Text("")
+                                .frame(maxWidth: .infinity)
+                            Text("\(self.FFTResults.count)")
+                                .hidden()
+                            ForEach(0..<self.FFTResults.count, id: \.self){(i) in
+                                Text("\(self.FFTResults[i].Note)")
+                                .font(.system(size:60))
+                            }
+                                    
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.size.height*0.3)
+                        
+                        
+                    }
+                        .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.size.height*0.3)
+                        .background(Color.white)
+                        .cornerRadius(20)
+                        .padding()
+                        .opacity(0.7)
+    //                    .frame(width: UIScreen.main.bounds.size.width*0.8, height: UIScreen.main.bounds.size.height*0.7)
+                        
+    //
+                }
+                Spacer()
+                .frame(height: 70)
+                                
+                
+            }
+//                .navigationBarTitle("Record", displayMode: .inline)
+                
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                .background(
+                Image("record_background")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .edgesIgnoringSafeArea(.all)
+                )
+                
+                .onAppear() {
+                    self.navigationBarIsHidden = false
+                    self.hide_navi_bar = false
+                    UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+                }
         }
             .navigationBarTitle("Record", displayMode: .inline)
+            .navigationBarHidden(self.hide_navi_bar)
             
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            .background(
-            Image("record_background")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .edgesIgnoringSafeArea(.all)
-            )
-            
-            .onAppear() {
-                self.navigationBarIsHidden = false
-            }
     }
 }
 //

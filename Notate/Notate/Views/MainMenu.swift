@@ -16,7 +16,10 @@ struct MainMenu: View {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     }
+    
     
     var body: some View {
         NavigationView {
@@ -65,16 +68,17 @@ struct MainMenu: View {
                         .shadow(radius: 10)
                 }
                 
-                NavigationLink(destination: SheetView(navigationBarIsHidden: self.$navigationBarIsHidden)) {
-                    Text("Sheet Music")
-                        .font(.subheadline)
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(Color.white)
-                        .padding()
-                        .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
-                        .padding()
-                        .shadow(radius: 10)
-                }
+//                NavigationLink(destination: SheetView(navigationBarIsHidden: self.$navigationBarIsHidden)) {
+//                    Text("Sheet Music")
+//                        .font(.subheadline)
+//                        .frame(maxWidth: .infinity)
+//                        .foregroundColor(Color.white)
+//                        .padding()
+//                        .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+//                        .padding()
+//                        .shadow(radius: 10)
+//                }
+                
                 
                 Spacer()
                 .frame(height: 200)

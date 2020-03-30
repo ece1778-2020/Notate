@@ -22,7 +22,7 @@ class AudioAnalyze{
     func singlePitch(buf:AVAudioPCMBuffer)->FFTResult{
         var tmp_FFTResultsList : [FFTResult]=[]
         let sampleRate = 12000
-        let TimeInterval = 1.0/Float(sampleRate)
+        _ = 1.0/Float(sampleRate)
         let totSamples = 4096
         let n = vDSP_Length(totSamples)
         
@@ -129,7 +129,7 @@ class AudioAnalyze{
     
     func audio_slicer(fileName:String,startPosition:Int64)->AVAudioPCMBuffer{
         let sampleRate = 12000
-        let TimeInterval = 1.0/Float(sampleRate)
+        _ = 1.0/Float(sampleRate)
         let totSamples = 4096
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let filePath = documentPath.appendingPathComponent(fileName)
@@ -145,8 +145,8 @@ class AudioAnalyze{
     func get_start_point(fileName:String) -> Int64{
         var startFramePosition : Int64 = 0
         var arrayStartFramePosition  = 0
-        var arrayCountSize  = 120
-        var frameCountSize = 1200
+        let arrayCountSize  = 120
+        let frameCountSize = 1200
         var preSliceSum : Float = 0
         var curSliceSum : Float = 0
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -176,7 +176,7 @@ class AudioAnalyze{
     func multy_note(fileName:String,bpm:Int=60)->[FFTResult]{
         var tmp_FFTResultsList : [FFTResult]=[]
         let sampleRate = 12000
-        let TimeInterval = 1.0/Float(sampleRate)
+        _ = 1.0/Float(sampleRate)
         let totSamples = 4096
         var startPosition : Int64 = 0
         

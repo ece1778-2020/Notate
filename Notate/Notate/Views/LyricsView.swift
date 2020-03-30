@@ -112,18 +112,10 @@ struct LyricsView: View {
             
             Spacer()
                 .frame(height: 20)
-            
-            TextView(text: $text)
-                .background(Color.white)
-                .cornerRadius(10)
-                .opacity(0.7)
-                .frame(height: self.obj.size)
-                .padding(10)
-            
             HStack {
                 Spacer()
                     .frame(width: 10)
-                TextField("Filename", text: $filename)
+                TextField("Name", text: $filename)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(10)
@@ -143,6 +135,14 @@ struct LyricsView: View {
                         
                 }
             }
+            TextView(text: $text)
+                .background(Color.white)
+                .cornerRadius(10)
+                .opacity(0.7)
+                .frame(height: self.obj.size)
+                .padding(10)
+            
+            
 //            Button(action: {
 //
 //            }) {

@@ -25,7 +25,9 @@ struct BPMSelectView: View {
             VStack {
                 Text("\(Int(adjustMetronome())) BPM")
                     .padding()
+                    .foregroundColor(Color.white)
                 Slider(value: $timerhelper.bpm, in: 60...180, step: 1)
+                    .font(.system(size: 60))
                     .padding()
                 HStack {
                     Button(action: {
@@ -35,7 +37,8 @@ struct BPMSelectView: View {
                             .font(.subheadline)
                             .foregroundColor(Color.white)
                             .padding()
-                            .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+                            .background(Color(red: 50 / 255, green: 50 / 255, blue: 50 / 255))
+                            .cornerRadius(10)
                             .padding()
                             .shadow(radius: 10)
                     }
@@ -47,13 +50,14 @@ struct BPMSelectView: View {
                             .font(.subheadline)
                             .foregroundColor(Color.white)
                             .padding()
-                            .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+                            .background(Color(red: 50 / 255, green: 50 / 255, blue: 50 / 255))
+                            .cornerRadius(10)
                             .padding()
                             .shadow(radius: 10)
                     }
                 }
             }
-            .background(Color.white)
+            .background(Color.gray)
             .cornerRadius(20)
             .opacity(0.7)
             

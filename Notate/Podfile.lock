@@ -1,16 +1,24 @@
 PODS:
+  - fluid-slider (1.1.0):
+    - pop
   - IQKeyboardManagerSwift (6.5.5)
+  - pop (1.0.12)
 
 DEPENDENCIES:
+  - fluid-slider
   - IQKeyboardManagerSwift
 
 SPEC REPOS:
   trunk:
+    - fluid-slider
     - IQKeyboardManagerSwift
+    - pop
 
 SPEC CHECKSUMS:
+  fluid-slider: 68037ac7247f16a89f3e24ff5d0167c8eea6f50b
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
 
-PODFILE CHECKSUM: 1a48162e285d0c4dba61734a225db3f3392a259d
+PODFILE CHECKSUM: b88fe19cbb8e949115fe5f53baa37c8a33d135ce
 
 COCOAPODS: 1.9.0.beta.3
