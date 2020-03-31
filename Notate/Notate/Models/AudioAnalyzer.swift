@@ -98,7 +98,7 @@ class AudioAnalyze{
         var cnt=0
         var i=0
         while (cnt<10){
-            if (tmp_FFTResultsList[i].freq<1100 && tmp_FFTResultsList[i].freq>80){
+            if (tmp_FFTResultsList[i].freq<1000 && tmp_FFTResultsList[i].freq>80){
                 let note_return = self.freq_to_note(freq: tmp_FFTResultsList[i].freq)
                 if (note_return == "OR"){
                     continue
@@ -330,6 +330,11 @@ class AudioAnalyze{
         
         if (rest_step>2){
             note_step+=1
+        }
+        if (rest_step<3){
+            note_step=5
+        }else{
+            note_step=4
         }
         var res_note : String = note_at_freq_list[rest_step]
         res_note=res_note.replacingOccurrences(of: "i", with: String(note_step))
