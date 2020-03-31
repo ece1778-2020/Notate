@@ -23,7 +23,7 @@ struct LyricsView: View {
     }
     
     func saveFile() {
-        if self.filename == "" || self.filename == "files" {
+        if self.filename == "" || self.filename == "lyrics" {
             self.alert_message = "Invalid filename!"
             self.show_alert.toggle()
         }
@@ -51,7 +51,7 @@ struct LyricsView: View {
     
     func add_file (name: String) {
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let filePath = documentPath.appendingPathComponent("files.txt")
+        let filePath = documentPath.appendingPathComponent("lyrics.txt")
         do {
             var file_list = try String(contentsOf: filePath, encoding: .utf8)
             var files = file_list.components(separatedBy: " ")
@@ -59,7 +59,7 @@ struct LyricsView: View {
                 files.append(name)
             }
             file_list = files.joined(separator: " ")
-            let url = documentPath.appendingPathComponent("files.txt")
+            let url = documentPath.appendingPathComponent("lyrics.txt")
             do {
                 try file_list.write(to: url, atomically: true, encoding: .utf8)
                 self.alert_message = "Success!"
@@ -88,14 +88,14 @@ struct LyricsView: View {
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         // filename here
         
-        let filePath = documentPath.appendingPathComponent("files.txt")
+        let filePath = documentPath.appendingPathComponent("lyrics.txt")
         do {
             let content = try String(contentsOf: filePath, encoding: .utf8)
             print(content)
         }
         catch {
             let content = ""
-            let url = documentPath.appendingPathComponent("files.txt")
+            let url = documentPath.appendingPathComponent("lyrics.txt")
             do {
                 try content.write(to: url, atomically: true, encoding: .utf8)
             }

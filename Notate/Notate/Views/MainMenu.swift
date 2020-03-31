@@ -58,7 +58,18 @@ struct MainMenu: View {
                 }
                 
                 NavigationLink(destination: RhythmDectView(audioRecorder: AudioRecorder(), navigationBarIsHidden: self.$navigationBarIsHidden)) {
-                    Text("Single Pitch Test")
+                    Text("Record a song")
+                        .font(.subheadline)
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(Color.white)
+                        .padding()
+                        .background(Color(red: 100 / 255, green: 100 / 255, blue: 100 / 255))
+                        .padding()
+                        .shadow(radius: 10)
+                }
+                
+                NavigationLink(destination: BrowseView()) {
+                    Text("Scores")
                         .font(.subheadline)
                         .frame(maxWidth: .infinity)
                         .foregroundColor(Color.white)

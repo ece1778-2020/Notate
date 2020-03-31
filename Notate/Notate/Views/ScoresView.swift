@@ -18,7 +18,7 @@ struct ScoresView: View {
     
     func loadFileList () {
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let filePath = documentPath.appendingPathComponent("files.txt")
+        let filePath = documentPath.appendingPathComponent("lyrics.txt")
         do {
             let shit = try String(contentsOf: filePath, encoding: .utf8)
             let temp = shit.components(separatedBy: " ")

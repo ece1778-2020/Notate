@@ -12,13 +12,14 @@ import WebKit
 struct WebView: UIViewRepresentable {
     let request: URLRequest
     let notes: [String]
+    let lyrics: [String]
     
     func makeUIView(context: Context) -> WKWebView {
         return WKWebView()
     }
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        let json: [String: Any] = ["notes": notes]
+        let json: [String: Any] = ["notes": notes, "lyrics": lyrics]
         
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
 
