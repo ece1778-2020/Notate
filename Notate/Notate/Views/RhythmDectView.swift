@@ -235,6 +235,9 @@ struct RhythmDectView: View {
 
                 NavigationLink(destination:
                     SheetView(hide_navi_bar: self.$hide_navi_bar, notes: observed.notes)
+                        .onAppear(){
+                            self.observed.lyrics = []
+                    }
                     .navigationBarTitle("", displayMode: .inline)
                 ) {
                     Text("Sheet Music")
