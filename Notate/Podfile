@@ -17,6 +17,5 @@ target 'Notate' do
   end
 
   pod 'IQKeyboardManagerSwift'
-  pod 'fluid-slider'
 
 end
