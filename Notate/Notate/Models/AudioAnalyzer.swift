@@ -331,11 +331,11 @@ class AudioAnalyze{
         if (rest_step>2){
             note_step+=1
         }
-        if (rest_step<3){
-            note_step=5
-        }else{
-            note_step=4
-        }
+//        if (rest_step<3){
+//            note_step=5
+//        }else{
+        note_step=4
+//        }
         var res_note : String = note_at_freq_list[rest_step]
         res_note=res_note.replacingOccurrences(of: "i", with: String(note_step))
 //        res_note=res_note.replacingOccurrences(of: "i", with: "")
