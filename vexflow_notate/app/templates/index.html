@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='auto_size.css')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vexflow/1.2.90/vexflow-debug.js"
+            integrity="sha256-RZgmhQAX3fNPj06CJuMTorN8sf4Z5xe5qmC2CUKeyAw="
+            crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="boo"></div>
+    {% for lyric in  shit["lyrics"] %}
+        <div class="textcontainer">
+            <h1 style="font-family: sans-serif" align="center">{{ lyric }}</h1>
+        </div>
+
+    {% endfor %}
+</body>
+{#    <div id="div1">#}
+{#        <p id="p1">This is a paragraph.</p>#}
+{#        <p id="p2">This is another paragraph.</p>#}
+{#    </div>#}
+    <script src="{{url_for('static', filename='test.js')}}">
+    </script>
+    <script>
+        function f(shit) {
+            for (i=0; i<shit.length; i++) {
+                var vf = new Vex.Flow.Factory({renderer: {elementId: 'boo', height: shit.length*60}});
+                var score = vf.EasyScore();
+                var system = vf.System();
+                system.addStave({
+                voices: [
+                  score.voice(score.notes(shit[i], {stem: 'up'}))
+                ]
+                }).addClef('treble');
+                vf.draw();
+            }
+
+        }
+        let notes = {{ shit["notes"]|safe }};
+        {#showSheet("notes");#}
+        f(notes);
+    </script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="auto_size.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vexflow/1.2.90/vexflow-debug.js"
+            integrity="sha256-RZgmhQAX3fNPj06CJuMTorN8sf4Z5xe5qmC2CUKeyAw="
+            crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="boo"></div>
+    <div id="div1">
+        <p id="p1">This is a paragraph.</p>
+        <p id="p2">This is another paragraph.</p>
+    </div>
+</body>
+    <script src="test.js">
+    </script>
+    <script>
+      var notes = {{ shit["notes"]|safe }};
+      showSheet(notes);
+</script>
+</html>
